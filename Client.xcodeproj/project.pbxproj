@@ -365,6 +365,7 @@
 		48B9A32729E43626007E5B0E /* libwebrtc.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 48B9A31A29E43624007E5B0E /* libwebrtc.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		48B9A32829E43626007E5B0E /* WebGPU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B9A31B29E43624007E5B0E /* WebGPU.framework */; };
 		48B9A32929E43626007E5B0E /* WebGPU.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 48B9A31B29E43624007E5B0E /* WebGPU.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		48B9A32B29E437D4007E5B0E /* CyberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B9A32A29E437D4007E5B0E /* CyberKit.framework */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		4F2A06BE26F8E46E0017DA05 /* TabCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2A06BD26F8E46E0017DA05 /* TabCounterTests.swift */; };
 		4F514FD41ACD8F2C0022D7EA /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F514FD31ACD8F2C0022D7EA /* HistoryTests.swift */; };
@@ -1562,16 +1563,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1B0DFD2C274857350008EB0A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4368F838279665E00013419B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3062,6 +3053,7 @@
 		48B9A31929E43624007E5B0E /* CyberScriptCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberScriptCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B9A31A29E43624007E5B0E /* libwebrtc.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libwebrtc.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B9A31B29E43624007E5B0E /* WebGPU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebGPU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48B9A32A29E437D4007E5B0E /* CyberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CE453DB03E03EB3597E22F /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
 		490042C78D64E36D6C7973A1 /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/AuthenticationManager.strings; sourceTree = "<group>"; };
 		491242468B874EDF3C93D6F2 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Search.strings; sourceTree = "<group>"; };
@@ -5580,6 +5572,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B9A32B29E437D4007E5B0E /* CyberKit.framework in Frameworks */,
 				43A878FE27AC39D30071C372 /* RustMozillaAppServices.framework in Frameworks */,
 				5A87148A292EA1520039A5BD /* Fuzi in Frameworks */,
 				433F87D02788ECDD00693368 /* GCDWebServers in Frameworks */,
@@ -6601,6 +6594,7 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48B9A32A29E437D4007E5B0E /* CyberKit.framework */,
 				48B9A31529E43624007E5B0E /* libANGLE-shared.dylib */,
 				48B9A31629E43624007E5B0E /* CyberCore.framework */,
 				48B9A31729E43624007E5B0E /* CyberKit.framework */,
@@ -8827,7 +8821,6 @@
 				047F9B2324E1FE1C00CD7DF7 /* Sources */,
 				047F9B2424E1FE1C00CD7DF7 /* Frameworks */,
 				047F9B2524E1FE1C00CD7DF7 /* Resources */,
-				1B0DFD2C274857350008EB0A /* Embed Frameworks */,
 				43338D0A278F726D00A23914 /* ShellScript */,
 			);
 			buildRules = (

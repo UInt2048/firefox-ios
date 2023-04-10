@@ -5,7 +5,7 @@
 @testable import Client
 import Storage
 import XCTest
-import WebKit
+import CyberKit
 
 // NOTE:
 // Tab groups not tested at the moment since it depends on RustPlaces concrete object.

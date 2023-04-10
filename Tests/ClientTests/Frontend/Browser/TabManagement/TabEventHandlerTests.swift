@@ -4,7 +4,7 @@
 
 import Foundation
 @testable import Client
-import WebKit
+import CyberKit
 import GCDWebServers
 import XCTest
 import Shared
