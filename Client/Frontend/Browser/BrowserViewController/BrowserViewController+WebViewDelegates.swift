@@ -334,7 +334,7 @@ extension BrowserViewController: WKUIDelegate {
             }))
     }
 
-    @available(iOS 15, *)
+    @available(iOS 14, *)
     func webView(_ webView: WKWebView,
                  requestMediaCapturePermissionFor origin: WKSecurityOrigin,
                  initiatedByFrame frame: WKFrameInfo,
