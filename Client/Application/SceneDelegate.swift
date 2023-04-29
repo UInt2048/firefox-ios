@@ -11,6 +11,7 @@ import UserNotifications
 import Account
 import MozillaAppServices
 import Common
+import CyberKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -199,6 +200,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+extension WKWebView {
+    func createPDF(completionHandler: @escaping (Data?, Error?) -> Void) {
+        __createPDF(with: nil, completionHandler: completionHandler)
+    }
+}
+
 @available(iOS 14, *)
 extension SceneDelegate: UIScreenshotServiceDelegate {
     func screenshotService(_ screenshotService: UIScreenshotService,
@@ -216,13 +223,8 @@ extension SceneDelegate: UIScreenshotServiceDelegate {
         rect.origin.x = webView.scrollView.contentOffset.x
         rect.origin.y = webView.scrollView.contentSize.height - rect.height - webView.scrollView.contentOffset.y
 
-        webView.createPDF { result in
-            switch result {
-            case .success(let data):
-                completionHandler(data, 0, rect)
-            case .failure:
-                completionHandler(nil, 0, .zero)
-            }
+        webView.createPDF { result, error in
+            completionHandler(result, 0, rect)
         }
     }
 }

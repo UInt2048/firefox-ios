@@ -10,7 +10,7 @@ extension WKWebView {
     /// - Parameters:
     ///     - javascript: String representing javascript to be evaluated
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String) {
-        self.evaluateJavaScript(javascript, in: nil, in: .defaultClient, completionHandler: { _ in })
+        self.__evaluateJavaScript(javascript, inFrame: nil as WKFrameInfo?, in: WKContentWorld.defaultClient, completionHandler: { _,_   in })
     }
 
     /// This calls WebKit evaluateJavaScript function with a completion that passes a tuple with optional data or an optional error
@@ -18,13 +18,8 @@ extension WKWebView {
     ///     - javascript: String representing javascript to be evaluated
     ///     - completion: Tuple containing optional data and an optional error
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String, _ completion: @escaping (Any?, Error?) -> Void) {
-        self.evaluateJavaScript(javascript, in: nil, in: .defaultClient) { result in
-            switch result {
-            case .success(let value):
-                completion(value, nil)
-            case .failure(let error):
-                completion(nil, error)
-            }
+        self.__evaluateJavaScript(javascript, inFrame: nil, in: .defaultClient) { result, error in
+            completion(result, error)
         }
     }
 }
