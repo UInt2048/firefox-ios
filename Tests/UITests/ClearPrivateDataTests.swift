@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0
 
 import Shared
-import WebKit
+import CyberKit
 import UIKit
 import GCDWebServers
 @testable import Client

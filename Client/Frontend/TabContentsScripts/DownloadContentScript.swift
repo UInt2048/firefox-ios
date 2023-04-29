@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import WebKit
+import CyberKit
 import Common
 
 class DownloadContentScript: TabContentScript {

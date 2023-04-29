@@ -6,7 +6,7 @@
 import Shared
 import Storage
 import UIKit
-import WebKit
+import CyberKit
 
 import XCTest
 

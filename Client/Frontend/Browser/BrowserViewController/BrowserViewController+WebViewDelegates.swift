@@ -4,7 +4,7 @@
 
 import Foundation
 import Common
-import WebKit
+import CyberKit
 import Shared
 import UIKit
 
@@ -676,7 +676,7 @@ extension BrowserViewController: WKNavigationDelegate {
         // will be that we switch to the external app, for example the app store, while keeping the
         // original web page in the tab instead of replacing it with an error page.
         let error = error as NSError
-        if error.domain == "WebKitErrorDomain" && error.code == 102 {
+        if error.domain == "CyberKitErrorDomain" && error.code == 102 {
             return
         }
 
@@ -876,7 +876,7 @@ private extension BrowserViewController {
     }
 
      func checkIfWebContentProcessHasCrashed(_ webView: WKWebView, error: NSError) -> Bool {
-        if error.code == WKError.webContentProcessTerminated.rawValue && error.domain == "WebKitErrorDomain" {
+        if error.code == WKError.webContentProcessTerminated.rawValue && error.domain == "CyberKitErrorDomain" {
             logger.log("WebContent process has crashed. Trying to reload to restart it.",
                        level: .warning,
                        category: .webview)
