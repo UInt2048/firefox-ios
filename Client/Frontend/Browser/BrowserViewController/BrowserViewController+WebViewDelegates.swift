@@ -334,7 +334,7 @@ extension BrowserViewController: WKUIDelegate {
             }))
     }
 
-    @available(iOS 14, *)
+    @available(iOS 13, *)
     func webView(_ webView: WKWebView,
                  requestMediaCapturePermissionFor origin: WKSecurityOrigin,
                  initiatedByFrame frame: WKFrameInfo,
@@ -517,9 +517,11 @@ extension BrowserViewController: WKNavigationDelegate {
         }
 
         // Handle keyboard shortcuts on link presses from webpage navigation (ex: Cmd + Tap on Link)
-        if navigationAction.navigationType == .linkActivated, navigateLinkShortcutIfNeeded(url: url) {
-            decisionHandler(.cancel)
-            return
+        if #available(iOS 13.4, *) {
+            if navigationAction.navigationType == .linkActivated, navigateLinkShortcutIfNeeded(url: url) {
+                decisionHandler(.cancel)
+                return
+            }
         }
 
         // This is the normal case, opening a http or https url, which we handle by loading them in this WKWebView. We

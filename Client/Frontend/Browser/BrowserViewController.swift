@@ -1887,8 +1887,10 @@ extension BrowserViewController: LibraryPanelDelegate {
         guard let tab = tabManager.selectedTab else { return }
 
         // Handle keyboard shortcuts from homepage with url selection (ex: Cmd + Tap on Link; which is a cell in this case)
-        if navigateLinkShortcutIfNeeded(url: url) {
-            return
+        if #available(iOS 13.4, *) {
+            if navigateLinkShortcutIfNeeded(url: url) {
+                return
+            }
         }
 
         finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
@@ -1949,8 +1951,10 @@ extension BrowserViewController: HomePanelDelegate {
         }
 
         // Handle keyboard shortcuts from homepage with url selection (ex: Cmd + Tap on Link; which is a cell in this case)
-        if navigateLinkShortcutIfNeeded(url: url) {
-            return
+        if #available(iOS 13.4, *) {
+            if navigateLinkShortcutIfNeeded(url: url) {
+                return
+            }
         }
 
         finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
@@ -2529,12 +2533,16 @@ extension BrowserViewController: ContextMenuHelperDelegate {
     }
 
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        keyboardPressesHandler().handlePressesBegan(presses, with: event)
+        if #available(iOS 13.4, *) {
+            keyboardPressesHandler().handlePressesBegan(presses, with: event)
+        }
         super.pressesBegan(presses, with: event)
     }
 
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        keyboardPressesHandler().handlePressesEnded(presses, with: event)
+        if #available(iOS 13.4, *) {
+            keyboardPressesHandler().handlePressesEnded(presses, with: event)
+        }
         super.pressesEnded(presses, with: event)
     }
 }
