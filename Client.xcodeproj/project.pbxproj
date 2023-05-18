@@ -9687,6 +9687,7 @@
 				E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				4368F81027955AE80013419B /* ShellScript */,
+				48FC3CB729FEE9790030D67F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -10395,6 +10396,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "rm -rf .venv; bash $PWD/bin/sdk_generator.sh -g Glean -o $SRCROOT/Storage/Generated\n";
+		};
+		48FC3CB729FEE9790030D67F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_fakesigner.sh\n";
 		};
 		5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -15350,7 +15368,7 @@
 					"$(SRCROOT)/../CyberKit/**",
 				);
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec.WidgetKit;
@@ -15370,7 +15388,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../CyberKit/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.0.1;
 				PINFOPLIST_FILE = WidgetKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
@@ -15391,7 +15409,7 @@
 					"$(SRCROOT)/../CyberKit/**",
 				);
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				PROVISIONING_PROFILE_SPECIFIER = "bitrise org.mozilla.ios.Firefox.WidgetKit";
@@ -15411,7 +15429,7 @@
 					"$(SRCROOT)/../CyberKit/**",
 				);
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				PROVISIONING_PROFILE_SPECIFIER = "bitrise org.mozilla.ios.FirefoxBeta.WidgetKit";
@@ -16368,7 +16386,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -16440,7 +16458,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -16513,7 +16531,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -16586,7 +16604,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
