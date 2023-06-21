@@ -6,6 +6,7 @@ import SwiftUI
 import WidgetKit
 import Combine
 
+@available(iOSApplicationExtension 14.0, *)
 struct TopSitesWidget: Widget {
     private let kind: String = "Top Sites"
 
@@ -19,6 +20,7 @@ struct TopSitesWidget: Widget {
     }
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct TopSitesView: View {
     let entry: TopSitesEntry
 

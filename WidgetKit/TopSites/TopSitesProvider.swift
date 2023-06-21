@@ -39,6 +39,7 @@ struct TopSitesProvider: TimelineProvider {
         }
     }
 
+    @available(iOSApplicationExtension 14.0, *)
     func getTimeline(in context: Context, completion: @escaping (Timeline<TopSitesEntry>) -> Void) {
         getSnapshot(in: context, completion: { topSitesEntry in
             let timeline = Timeline(entries: [topSitesEntry], policy: .atEnd)
