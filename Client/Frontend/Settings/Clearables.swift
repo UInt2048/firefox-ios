@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import WebKit
+import CyberKit
 import CoreSpotlight
 import SiteImageView
 import Common

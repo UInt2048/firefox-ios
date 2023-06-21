@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
-import WebKit
+import CyberKit
 
 protocol DownloadDelegate: AnyObject {
     func download(_ download: Download, didCompleteWithError error: Error?)

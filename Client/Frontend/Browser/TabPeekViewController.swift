@@ -5,7 +5,7 @@
 import UIKit
 import Shared
 import Storage
-import WebKit
+import CyberKit
 
 protocol TabPeekDelegate: AnyObject {
     @discardableResult

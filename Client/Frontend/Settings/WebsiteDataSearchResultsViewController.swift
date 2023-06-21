@@ -5,7 +5,7 @@
 import UIKit
 import SnapKit
 import Shared
-import WebKit
+import CyberKit
 import Common
 
 class WebsiteDataSearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Themeable {

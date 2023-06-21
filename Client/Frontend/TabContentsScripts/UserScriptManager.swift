@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
-import WebKit
+import CyberKit
 
 class UserScriptManager: FeatureFlaggable {
     // Scripts can use this to verify the *app* (not JS on the web) is calling into them.

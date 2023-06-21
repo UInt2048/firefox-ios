@@ -4,7 +4,7 @@
 
 import PassKit
 import Shared
-import WebKit
+import CyberKit
 import Common
 
 class OpenPassBookHelper {
