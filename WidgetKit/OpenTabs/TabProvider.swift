@@ -46,6 +46,7 @@ struct TabProvider: TimelineProvider {
         }
     }
 
+    @available(iOSApplicationExtension 14.0, *)
     func getTimeline(in context: Context, completion: @escaping (Timeline<OpenTabsEntry>) -> Void) {
         getSnapshot(in: context, completion: { openTabsEntry in
             let timeline = Timeline(entries: [openTabsEntry], policy: .atEnd)

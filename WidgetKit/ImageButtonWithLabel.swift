@@ -47,6 +47,7 @@ import SwiftUI
 // |                                                       |
 // +-------------------------------------------------------+
 
+@available(iOSApplicationExtension 14.0, *)
 struct ImageButtonWithLabel: View {
     var isSmall: Bool
     var link: QuickLink

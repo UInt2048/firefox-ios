@@ -7,6 +7,7 @@ import WidgetKit
 import UIKit
 import Combine
 
+@available(iOSApplicationExtension 14.0, *)
 struct OpenTabsWidget: Widget {
     private let kind: String = "Quick View"
 
@@ -20,6 +21,7 @@ struct OpenTabsWidget: Widget {
     }
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct OpenTabsView: View {
     let entry: OpenTabsEntry
 

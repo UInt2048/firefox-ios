@@ -6,6 +6,7 @@
 import SwiftUI
 import WidgetKit
 
+@available(iOSApplicationExtension 14.0, *)
 struct IntentProvider: IntentTimelineProvider {
     typealias Intent = QuickActionIntent
     typealias Entry = QuickLinkEntry
@@ -31,6 +32,7 @@ struct QuickLinkEntry: TimelineEntry {
     let link: QuickLink
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct SmallQuickLinkView: View {
     var entry: IntentProvider.Entry
 
@@ -41,6 +43,7 @@ struct SmallQuickLinkView: View {
     }
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct SmallQuickLinkWidget: Widget {
     private let kind: String = "Quick Actions - Small"
 
@@ -54,6 +57,7 @@ struct SmallQuickLinkWidget: Widget {
     }
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct SmallQuickActionsPreviews: PreviewProvider {
     static let testEntry = QuickLinkEntry(date: Date(), link: .search)
     static var previews: some View {

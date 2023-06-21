@@ -6,6 +6,7 @@
 import WidgetKit
 import SwiftUI
 
+@available(iOSApplicationExtension 14.0, *)
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         return SimpleEntry(date: Date())
@@ -29,6 +30,7 @@ struct SimpleEntry: TimelineEntry {
     public let date: Date
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct SearchQuickLinksEntryView: View {
     @ViewBuilder var body: some View {
         VStack {
@@ -46,6 +48,7 @@ struct SearchQuickLinksEntryView: View {
     }
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct SearchQuickLinksWidget: Widget {
     private let kind: String = "Quick Actions - Medium"
 
@@ -59,6 +62,7 @@ struct SearchQuickLinksWidget: Widget {
     }
 }
 
+@available(iOSApplicationExtension 14.0, *)
 struct SearchQuickLinksPreviews: PreviewProvider {
     static var previews: some View {
         Group {

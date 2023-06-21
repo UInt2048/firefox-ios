@@ -6,6 +6,7 @@
 import WidgetKit
 import SwiftUI
 
+@available(iOSApplicationExtension 14.0, *)
 @main
 struct FirefoxWidgets: WidgetBundle {
     @WidgetBundleBuilder var body: some Widget {
