@@ -1,4 +1,4 @@
-// swift-tools-version: 5.6
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -24,19 +24,19 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/nbhasin2/Fuzi.git",
-            branch: "master"),
+            .branch("master")),
         .package(
             url: "https://github.com/onevcat/Kingfisher.git",
-            exact: "7.6.2"),
+            .exact("7.6.2")),
         .package(
             url: "https://github.com/AliSoftware/Dip.git",
-            exact: "7.1.1"),
+            .exact("7.1.1")),
         .package(
             url: "https://github.com/SwiftyBeaver/SwiftyBeaver.git",
-            exact: "2.0.0"),
+            .exact("2.0.0")),
         .package(
             url: "https://github.com/getsentry/sentry-cocoa.git",
-            exact: "8.6.0"),
+            .exact("8.6.0")),
     ],
     targets: [
         .target(
