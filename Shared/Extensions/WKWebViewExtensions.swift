@@ -14,7 +14,7 @@ extension WKWebView {
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String) {
         // iOS 14.3 is required here because of a webkit bug in lower iOS versions with this API
         if #available(iOS 14.3, *) {
-            self.evaluateJavaScript(javascript, in: nil, in: .defaultClient, completionHandler: { _ in })
+            self.__evaluateJavaScript(javascript, inFrame: nil, in: .defaultClient, completionHandler: { _,_ in })
         } else {
             self.evaluateJavaScript(javascript)
         }
@@ -29,13 +29,8 @@ extension WKWebView {
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String, _ completion: @escaping (Any?, Error?) -> Void) {
         // iOS 14.3 is required here because of a webkit bug in lower iOS versions with this API
         if #available(iOS 14.3, *) {
-            self.evaluateJavaScript(javascript, in: nil, in: .defaultClient) { result in
-                switch result {
-                case .success(let value):
-                    completion(value, nil)
-                case .failure(let error):
-                    completion(nil, error)
-                }
+            self.__evaluateJavaScript(javascript, inFrame: nil, in: .defaultClient) { data, error in
+                completion(data, error)
             }
         } else {
             self.evaluateJavaScript(javascript) { data, error  in
