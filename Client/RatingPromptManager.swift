@@ -137,7 +137,9 @@ final class RatingPromptManager {
         }) as? UIWindowScene else { return }
 
         DispatchQueue.main.async {
-            SKStoreReviewController.requestReview(in: scene)
+            if #available(iOS 14.0, *) {
+                SKStoreReviewController.requestReview(in: scene)
+            }
         }
     }
 

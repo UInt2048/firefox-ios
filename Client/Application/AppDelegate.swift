@@ -202,7 +202,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func updateTopSitesWidget() {
         // Since we only need the topSites data in the archiver, let's write it
-        widgetManager?.writeWidgetKitTopSites()
+        if #available(iOS 14.0, *) {
+            widgetManager?.writeWidgetKitTopSites()
+        }
     }
 }
 
