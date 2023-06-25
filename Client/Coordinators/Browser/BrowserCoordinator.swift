@@ -4,7 +4,7 @@
 
 import Common
 import Foundation
-import WebKit
+import CyberKit
 import Shared
 
 class BrowserCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, BrowserDelegate, SettingsCoordinatorDelegate {

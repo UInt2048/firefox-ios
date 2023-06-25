@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import WebKit
+import CyberKit
 
 class WebviewViewController: UIViewController, ContentContainable, ScreenshotableView {
     private var webView: WKWebView
@@ -53,11 +53,10 @@ class WebviewViewController: UIViewController, ContentContainable, Screenshotabl
         rect.origin.x = webView.scrollView.contentOffset.x
         rect.origin.y = webView.scrollView.contentSize.height - rect.height - webView.scrollView.contentOffset.y
 
-        webView.createPDF { result in
-            switch result {
-            case .success(let data):
+        webView.createPDF { data, error in
+            if let data = data {
                 completionHandler(ScreenshotData(pdfData: data, rect: rect))
-            case .failure:
+            } else {
                 completionHandler(nil)
             }
         }
