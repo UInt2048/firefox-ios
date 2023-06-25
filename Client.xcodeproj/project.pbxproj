@@ -9981,10 +9981,10 @@
 		F84B21B51A090F8100AAB793 = {
 			isa = PBXGroup;
 			children = (
+				5A65BE172928619E00E841A7 /* BrowserKit */,
 				962C6C39297054A700354BE8 /* Package.swift */,
 				962C6C3F2971F5D400354BE8 /* Dangerfile.swift */,
 				962C6C3B297054EC00354BE8 /* Sources */,
-				5A65BE172928619E00E841A7 /* BrowserKit */,
 				45D5EDC1292D636000311934 /* nimbus.fml.yaml */,
 				C8E2E80623D20FB3005AACE6 /* RustFxA */,
 				2FA435FC1ABB83B4008031D1 /* Account */,
@@ -11469,7 +11469,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_framework_copy.sh\n";
+			shellScript = "cd $SRCROOT/../CyberKit/CyberKitBuild/Fennec-iphoneos\n\nln -sf ../Debug-iphoneos/CyberScriptCore.framework .\nln -sf ../Debug-iphoneos/CyberCore.framework .\nln -sf ../Debug-iphoneos/CyberKitLegacy.framework .\nln -sf ../Debug-iphoneos/CyberKit.framework .\nln -sf ../Debug-iphoneos/WebGPU.framework .\nln -sf ../Debug-iphoneos/libANGLE-shared.dylib .\nln -sf ../Debug-iphoneos/libwebrtc.dylib .\n";
 		};
 		48FC3CB729FEE9790030D67F /* Fakesign */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -11487,7 +11487,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_fakesigner.sh\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_fakesigner.sh fennec+14\n";
 		};
 		5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -17062,7 +17062,6 @@
 					"$(SRCROOT)/../CyberKit/**",
 				);
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec.WidgetKit;
@@ -17082,7 +17081,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/../CyberKit/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.0.1;
 				PINFOPLIST_FILE = WidgetKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
@@ -17103,7 +17101,6 @@
 					"$(SRCROOT)/../CyberKit/**",
 				);
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				PROVISIONING_PROFILE_SPECIFIER = "bitrise org.mozilla.ios.Firefox.WidgetKit";
@@ -17123,7 +17120,6 @@
 					"$(SRCROOT)/../CyberKit/**",
 				);
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				PROVISIONING_PROFILE_SPECIFIER = "bitrise org.mozilla.ios.FirefoxBeta.WidgetKit";
@@ -17252,7 +17248,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -17562,7 +17558,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -17825,7 +17821,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -18081,7 +18077,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -18153,7 +18148,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -18226,7 +18220,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -18299,7 +18292,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = CredentialProvider/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -18326,7 +18318,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
