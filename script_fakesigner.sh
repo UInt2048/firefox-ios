@@ -126,7 +126,8 @@ mv $APPLICATION_PATH Payload
 rm -rf $DIR_NAME
 
 # Package into IPA
+IPA_NAME=$(echo *.deb | sed 's/_[a-z].*//' | sed 's/\+\([0-9]\)/\1/' | sed 's/-\([0-9]\)/\1/')
 echo "[*] Creating IPA..."
-rm -f "$ipa.ipa" || true
-zip -r -y "$ipa.ipa" Payload
-echo "[*] Created $ipa.ipa"
+rm -f "$IPA_NAME.ipa" || true
+zip -r -y "$IPA_NAME.ipa" Payload
+echo "[*] Created $IPA_NAME.ipa"

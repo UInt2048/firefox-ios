@@ -11473,6 +11473,7 @@
 		};
 		48FC3CB729FEE9790030D67F /* Fakesign */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
