@@ -1,13 +1,14 @@
 Package: com.matthewbenedict.ios.fennec+13
 Name: CyberKit Fennec (iOS 13)
 Maintainer: UInt2048
-Version: 0.0.7-alpha
+Version: 0.0.8-alpha
 Section: Tweaks
-Provides: com.matthewbenedict.ios.fennec (= 0.0.7-alpha)
+Provides: com.matthewbenedict.ios.fennec (= 0.0.8-alpha)
 Conflicts: com.matthewbenedict.ios.fennec
 Replaces: com.matthewbenedict.ios.fennec
 Depends: firmware (>=13.0), firmware (<<14.0)
 Architecture: iphoneos-arm
 Description: CyberKit Fennec allows you to test CyberKit using Firefox for iOS.
-Depiction: https://uint2048.github.io/depictions/?p=com.matthewbenedict.ios.fennec+13
+Depiction: https://uint2048.github.io/depictions/fennec-rootful/?p=13
+Sileodepiction: https://uint2048.github.io/depictions/fennec-rootful/13/sileo.json
 Icon: https://uint2048.github.io/CydiaIcon.png
