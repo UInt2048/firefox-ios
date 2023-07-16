@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Combine
 import SwiftUI
 import Shared
 
@@ -26,7 +27,7 @@ struct CreditCardSectionHeader: View {
         .onAppear {
             applyTheme(theme: themeVal.theme)
         }
-        .onChange(of: themeVal) { val in
+        .onReceive(Just(themeVal)) { val in
             applyTheme(theme: val.theme)
         }
     }

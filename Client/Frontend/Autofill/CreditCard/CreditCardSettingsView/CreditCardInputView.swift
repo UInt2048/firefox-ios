@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Combine
 import Foundation
 import Storage
 import SwiftUI
@@ -21,7 +22,9 @@ struct CreditCardInputView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                backgroundColor.ignoresSafeArea()
+                if #available(iOS 14.0, *) {
+                    backgroundColor.ignoresSafeArea()
+                }
                 VStack(spacing: 0) {
                     Divider()
                         .frame(height: 0.7)
@@ -76,6 +79,7 @@ struct CreditCardInputView: View {
 
                     Spacer()
                 }
+                #if os(iOS) && WK_IOS_SINCE_14
                 .navigationBarTitle(viewModel.state.title,
                                     displayMode: .inline)
                 .toolbar {
@@ -87,6 +91,7 @@ struct CreditCardInputView: View {
                         leftBarButton()
                     }
                 }
+                #endif
                 .padding(.top, 0)
                 .background(backgroundColor.edgesIgnoringSafeArea(.bottom))
             }
@@ -94,7 +99,7 @@ struct CreditCardInputView: View {
             .onAppear {
                 applyTheme(theme: themeVal.theme)
             }
-            .onChange(of: themeVal) { val in
+            .onReceive(Just(themeVal)) { val in
                 applyTheme(theme: val.theme)
             }
             .onReceive(NotificationCenter.default.publisher(

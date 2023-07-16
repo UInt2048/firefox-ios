@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Combine
 import Foundation
 import SwiftUI
 import Shared
@@ -84,7 +85,7 @@ struct CreditCardInputField: View {
             VStack(alignment: .leading, spacing: 0) {
                 provideInputField().onAppear {
                     updateFields(inputType: inputType)
-                }.onChange(of: viewModel.state) { val in
+                }.onReceive(Just(viewModel.state)) { val in
                     switch val {
                     case .edit, .add:
                         shouldReveal = true
@@ -105,7 +106,7 @@ struct CreditCardInputField: View {
         .onAppear {
             applyTheme(theme: themeVal.theme)
         }
-        .onChange(of: themeVal) { val in
+        .onReceive(Just(themeVal)) { val in
             applyTheme(theme: val.theme)
         }
     }
@@ -121,6 +122,28 @@ struct CreditCardInputField: View {
     }
 
     // MARK: Views
+    
+    var inputFieldView: some View {
+        ScrollView {
+            Button(String.CreditCard.EditCard.CopyLabel) {
+                UIPasteboard.general.string = viewModel.getCopyValueFor(inputType)
+            }
+            
+            // We conceal and reveal credit card number for only view state
+            if viewModel.state == .view &&
+                inputType == .number {
+                if shouldReveal {
+                    Button(String.CreditCard.EditCard.ConcealLabel) {
+                        shouldReveal = false
+                    }
+                } else {
+                    Button(String.CreditCard.EditCard.RevealLabel) {
+                        shouldReveal = true
+                    }
+                }
+            }
+        }
+    }
 
     @ViewBuilder
     private func provideInputField() -> some View {
@@ -129,27 +152,15 @@ struct CreditCardInputField: View {
             .foregroundColor(titleColor)
             .frame(maxWidth: .infinity, alignment: .leading)
         if viewModel.state == .view {
-            Menu {
-                Button(String.CreditCard.EditCard.CopyLabel) {
-                    UIPasteboard.general.string = viewModel.getCopyValueFor(inputType)
-                }
-
-                // We conceal and reveal credit card number for only view state
-                if viewModel.state == .view &&
-                    inputType == .number {
-                    if shouldReveal {
-                        Button(String.CreditCard.EditCard.ConcealLabel) {
-                            shouldReveal = false
-                        }
-                    } else {
-                        Button(String.CreditCard.EditCard.RevealLabel) {
-                            shouldReveal = true
-                        }
-                    }
-                }
-            } label: {
-                getTextField(editMode: disableEditing)
-            }.disabled(!disableEditing)
+            if #available(iOS 14.0, *) {
+                Menu {
+                    inputFieldView
+                } label: {
+                    getTextField(editMode: disableEditing)
+                }.disabled(!disableEditing)
+            } else {
+                inputFieldView
+            }
         } else {
             getTextField(editMode: disableEditing)
         }
@@ -161,7 +172,9 @@ struct CreditCardInputField: View {
             Image(ImageIdentifiers.errorAutofill)
                 .renderingMode(.template)
                 .foregroundColor(errorColor)
+#if os(iOS) && WK_IOS_SINCE_14
                 .accessibilityHidden(true)
+#endif
             Text(errorString)
                 .errorTextStyle(color: errorColor)
         }
@@ -178,7 +191,7 @@ struct CreditCardInputField: View {
             .keyboardType(keyboardType)
             .lineLimit(1)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .onChange(of: text) { [oldValue = text] newValue in
+            .onReceive(Just(text)) { [oldValue = text] newValue in
                     handleTextInputWith(oldValue, and: newValue)
             }
     }

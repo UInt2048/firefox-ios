@@ -57,7 +57,7 @@ class AccessoryViewProvider: UIView, Themeable {
         return button
     }()
 
-    private let flexibleSpacer = UIBarButtonItem(systemItem: .flexibleSpace)
+    private let flexibleSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target:nil, action:nil)
 
     private let fixedSpacer: UIView = .build { view in
         NSLayoutConstraint.activate([

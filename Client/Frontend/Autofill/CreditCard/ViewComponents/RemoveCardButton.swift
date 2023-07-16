@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Combine
 import Foundation
 import SwiftUI
 import Shared
@@ -59,7 +60,7 @@ struct RemoveCardButton: View {
         }.onAppear {
             applyTheme(theme: themeVal.theme)
         }
-        .onChange(of: themeVal) { newThemeValue in
+        .onReceive(Just(themeVal)) { newThemeValue in
             applyTheme(theme: newThemeValue.theme)
         }
     }

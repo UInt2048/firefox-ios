@@ -5,6 +5,7 @@
 import Foundation
 import SwiftUI
 import Shared
+import Combine
 
 struct CreditCardSettingsEmptyView: View {
     // Theming
@@ -60,7 +61,7 @@ struct CreditCardSettingsEmptyView: View {
         }.onAppear {
             applyTheme(theme: themeVal.theme)
         }
-        .onChange(of: themeVal) { newThemeValue in
+        .onReceive(Just(themeVal)) { newThemeValue in
             applyTheme(theme: newThemeValue.theme)
         }
     }

@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Combine
 import Foundation
 import SwiftUI
 import Shared
@@ -45,7 +46,7 @@ struct CreditCardAutofillToggle: View {
                     .foregroundColor(textColor)
                     .padding(.leading, 16)
                     .padding(.trailing, 16)
-                    .toggleStyle(SwitchToggleStyle(tint: toggleTintColor))
+                    .toggleStyle(.switch)
             }
             Divider()
                 .frame(height: 0.7)
@@ -55,7 +56,7 @@ struct CreditCardAutofillToggle: View {
         .onAppear {
             applyTheme(theme: themeVal.theme)
         }
-        .onChange(of: themeVal) { val in
+        .onReceive(Just(themeVal)) { val in
             applyTheme(theme: val.theme)
         }
     }
