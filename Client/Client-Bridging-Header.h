@@ -4,6 +4,8 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonCrypto.h>
 
+#import <unicode/putil.h>
+
 #import "FSReadingList.h"
 
 #import "ThirdParty/Apple/UIImage+ImageEffects.h"

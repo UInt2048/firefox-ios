@@ -22,4 +22,7 @@ if AppConstants.isRunningUITests || AppConstants.isRunningPerfTests {
 // https://stackoverflow.com/questions/108183/how-to-prevent-sigpipes-or-handle-them-properly
 signal(SIGPIPE, SIG_IGN)
 
+let path = (Bundle.main.bundlePath as NSString).appendingPathComponent("Frameworks/CyberKit.framework/XPCServices")
+u_setDataDirectory(path.cString(using: String.Encoding.utf8))
+
 _ = UIApplicationMain(CommandLine.argc, CommandLine.unsafeArgv, NSStringFromClass(UIApplication.self), appDelegate)

@@ -40,6 +40,7 @@ rm -rf $app/Frameworks/CyberKit.framework/Daemons && mkdir $app/Frameworks/Cyber
 cp -R ../../Debug-iphoneos/*.xpc $app/Frameworks/CyberKit.framework/XPCServices
 cp ../../Debug-iphoneos/adattributiond $app/Frameworks/CyberKit.framework/Daemons
 cp ../../Debug-iphoneos/webpushd $app/Frameworks/CyberKit.framework/Daemons
+cp ../../../Source/WTF/icu/unicode/data/out/*.dat $app/Frameworks/CyberKit.framework/XPCServices
 ln -s ../../Frameworks $app/Plugins/CredentialProvider.appex
 ln -s ../../Frameworks $app/Plugins/NotificationService.appex
 ln -s ../../Frameworks $app/Plugins/ShareTo.appex
