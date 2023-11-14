@@ -109,12 +109,6 @@
 	<true/>
 	<key>com.apple.private.webkit.use-xpc-endpoint</key>
 	<true/>
-	<key>com.apple.QuartzCore.secure-mode</key>
-	<true/>
-	<key>com.apple.QuartzCore.webkit-end-points</key>
-	<true/>
-	<key>com.apple.QuartzCore.webkit-limited-types</key>
-	<true/>
 	<key>com.apple.rootless.storage.CyberKitWebContentSandbox</key>
 	<true/>
 	<key>com.apple.rootless.storage.CyberScriptCore</key>
@@ -183,7 +177,7 @@
 		<string>com.apple.nfcd.hwmanager</string>
 		<string>com.apple.ClipServices.clipserviced</string>
 		<string>com.apple.security.octagon</string>
-		<string>com.apple.CyberKit.WebAuthn</string>
+		<string>com.matthewbenedict.CyberKit.WebAuthn</string>
 		<string>com.apple.appstorecomponentsd.xpc</string>
 		<string>com.apple.datamigrator</string>
 		<string>com.apple.online-auth-agent.xpc</string>
@@ -210,11 +204,11 @@
 		<string>AGXDevice</string>
 		<string>AGXDeviceUserClient</string>
 		<string>AGXSharedUserClient</string>
+		<string>AppleJPEGDriverUserClient</string>
 		<string>AppleKeyStoreUserClient</string>
 		<string>AppleUpstreamUserClient</string>
 		<string>AppleAVDUserClient</string>
 		<string>AudioAUUC</string>
-		<string>AppleJPEGDriverUserClient</string>
 		<string>IOAccelContext</string>
 		<string>IOAccelDevice</string>
 		<string>IOAccelSharedUserClient</string>
