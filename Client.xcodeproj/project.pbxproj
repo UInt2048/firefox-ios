@@ -8296,13 +8296,6 @@
 			path = Messaging;
 			sourceTree = "<group>";
 		};
-		96441BD229DF7DA500FE041F /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		965C3C8B29313949006499ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -10011,7 +10004,6 @@
 				28CE83EF1A1D246900576538 /* Third-Party Source */,
 				E15A8B2B286CFD48004BB2B8 /* Tests */,
 				43BE578B278BA4D900491291 /* RustMozillaAppServices-Info.plist */,
-				96441BD229DF7DA500FE041F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -10732,13 +10724,13 @@
 				C874A4E327F62C5B006F54E5 /* Swiftlint */,
 				5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */,
 				5FA2232C27F6FA69005B3D87 /* Nimbus Feature Manifest Generator Script */,
+				484575952A43918100748722 /* Symlink Frameworks */,
 				F84B21BA1A090F8100AAB793 /* Sources */,
 				F84B21BC1A090F8100AAB793 /* Resources */,
 				28CE83DE1A1D1E7C00576538 /* Frameworks */,
 				F84B22531A0920C600AAB793 /* Embed App Extensions */,
 				E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */,
 				4368F81027955AE80013419B /* Prepare to Move Frameworks */,
-				484575952A43918100748722 /* Symlink Frameworks */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				48FC3CB729FEE9790030D67F /* Fakesign */,
 			);
@@ -11475,7 +11467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd $SRCROOT/../CyberKit/CyberKitBuild/Fennec-iphoneos\n\nln -sf ../Debug-iphoneos/CyberScriptCore.framework .\nln -sf ../Debug-iphoneos/CyberCore.framework .\nln -sf ../Debug-iphoneos/CyberKitLegacy.framework .\nln -sf ../Debug-iphoneos/CyberKit.framework .\nln -sf ../Debug-iphoneos/WebGPU.framework .\nln -sf ../Debug-iphoneos/libANGLE-shared.dylib .\nln -sf ../Debug-iphoneos/libwebrtc.dylib .\n";
+			shellScript = "cd $SRCROOT/../CyberKit/CyberKitBuild/Fennec-iphoneos\n\nln -sf ../Debug-iphoneos/_libJetsamConfigurator.dylib .\nln -sf ../Debug-iphoneos/libANGLE-shared.dylib .\nln -sf ../Debug-iphoneos/libwebrtc.dylib .\nln -sf ../Debug-iphoneos/CyberScriptCore.framework .\nln -sf ../Debug-iphoneos/CyberCore.framework .\nln -sf ../Debug-iphoneos/CyberKitLegacy.framework .\nln -sf ../Debug-iphoneos/CyberKit.framework .\nln -sf ../Debug-iphoneos/WebGPU.framework .\n";
 		};
 		48FC3CB729FEE9790030D67F /* Fakesign */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -11494,7 +11486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_fakesigner.sh fennec+13\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_fakesigner.sh fennec+$CYBERKIT_DEPLOYMENT_TARGET\n";
 		};
 		5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -17255,7 +17247,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = $CYBERKIT_DEPLOYMENT_TARGET;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -17565,7 +17557,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = $CYBERKIT_DEPLOYMENT_TARGET;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -17828,7 +17820,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = $CYBERKIT_DEPLOYMENT_TARGET;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -18325,7 +18317,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = $CYBERKIT_DEPLOYMENT_TARGET;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
