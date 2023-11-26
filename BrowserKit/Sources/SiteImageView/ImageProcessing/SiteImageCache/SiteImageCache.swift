@@ -4,9 +4,18 @@
 
 import Kingfisher
 import UIKit
+import PromiseKit
 
 /// Handles caching of images. Will cache following the different image type. So for a given domain you can get different image type.
 protocol SiteImageCache {
+#if os(iOS) && WK_IOS_BEFORE_13
+    func getImageFromCache(cacheKey: String,
+                           type: SiteImageType) throws -> Promise<UIImage>
+    func cacheImage(image: UIImage,
+                    cacheKey: String,
+                    type: SiteImageType) -> Promise<Void>
+    func clearCache() -> Promise<Void>
+#else
     /// Get the image depending on the image type
     /// - Parameters:
     ///   - domain: The domain to retrieve the image from
@@ -26,6 +35,7 @@ protocol SiteImageCache {
 
     /// Clears the image cache
     func clearCache() async
+#endif
 }
 
 actor DefaultSiteImageCache: SiteImageCache {
@@ -35,6 +45,27 @@ actor DefaultSiteImageCache: SiteImageCache {
         self.imageCache = imageCache
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getImageFromCache(cacheKey: String,
+                           type: SiteImageType) throws -> Promise<UIImage> {
+        firstly {
+            self.cacheKey(cacheKey, type: type)
+        }.then { key in
+            imageCache.retrieveImage(forKey: key)
+        }.then {
+            guard let image = result else {
+                throw SiteImageError.unableToRetrieveFromCache("Image was nil")
+            }
+            return image
+        }.catch { error in
+            if let err = error as KingfisherError {
+                throw SiteImageError.unableToRetrieveFromCache(error.errorDescription ?? "No description")
+            } else {
+                throw error
+            }
+        }
+    }
+    #else
     func getImageFromCache(cacheKey: String,
                            type: SiteImageType) async throws -> UIImage {
         let key = self.cacheKey(cacheKey, type: type)
@@ -48,15 +79,33 @@ actor DefaultSiteImageCache: SiteImageCache {
             throw SiteImageError.unableToRetrieveFromCache(error.errorDescription ?? "No description")
         }
     }
+    #endif
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func cacheImage(image: UIImage, cacheKey: String, type: SiteImageType) ->
+        Promise<Void> {
+            firstly {
+                self.cacheKey(cacheKey, type: type)
+            }.then { key in
+                imageCache.store(image: image, forKey: key)
+            }
+    }
+    #else
     func cacheImage(image: UIImage, cacheKey: String, type: SiteImageType) async {
         let key = self.cacheKey(cacheKey, type: type)
         imageCache.store(image: image, forKey: key)
     }
+    #endif
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func clearCache() -> Promise<Void> {
+        firstly { imageCache.clearCache() }
+    }
+    #else
     func clearCache() async {
         imageCache.clearCache()
     }
+    #endif
 
     private func cacheKey(_ cacheKey: String, type: SiteImageType) -> String {
         return "\(cacheKey)-\(type.rawValue)"

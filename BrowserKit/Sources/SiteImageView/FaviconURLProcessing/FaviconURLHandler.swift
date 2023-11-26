@@ -3,9 +3,14 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
+import PromiseKit
 
 protocol FaviconURLHandler {
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getFaviconURL(site: SiteImageModel) throws -> Promise<SiteImageModel>
+    #else
     func getFaviconURL(site: SiteImageModel) async throws -> SiteImageModel
+    #endif
     func cacheFaviconURL(cacheKey: String, faviconURL: URL)
     func clearCache()
 }
@@ -20,6 +25,30 @@ struct DefaultFaviconURLHandler: FaviconURLHandler {
         self.urlCache = urlCache
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getFaviconURL(site: SiteImageModel) throws -> Promise<SiteImageModel> {
+        // Don't fetch favicon URL if we don't have a URL or domain for it
+        guard let siteURL = site.siteURL else {
+            throw SiteImageError.noFaviconURLFound
+        }
+
+        var imageModel = site
+        
+        firstly {
+            try urlCache.getURLFromCache(cacheKey: imageModel.cacheKey)
+            imageModel.faviconURL = url
+        }.recover {
+            urlFetcher.fetchFaviconURL(siteURL: siteURL).then {
+                urlCache.cacheURL(cacheKey: imageModel.cacheKey, faviconURL: url)
+                imageModel.faviconURL = url
+            }.catch {
+                throw SiteImageError.noFaviconURLFound
+            }
+        }.then {
+            return imageModel
+        }
+    }
+    #else
     func getFaviconURL(site: SiteImageModel) async throws -> SiteImageModel {
         // Don't fetch favicon URL if we don't have a URL or domain for it
         guard let siteURL = site.siteURL else {
@@ -42,6 +71,7 @@ struct DefaultFaviconURLHandler: FaviconURLHandler {
             }
         }
     }
+    #endif
 
     func cacheFaviconURL(cacheKey: String, faviconURL: URL) {
         Task {

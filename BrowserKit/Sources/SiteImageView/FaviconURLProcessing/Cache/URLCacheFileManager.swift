@@ -4,9 +4,14 @@
 
 import Foundation
 import Common
+import PromiseKit
 
 protocol URLCacheFileManager: Actor {
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getURLCache() -> Promise<Data?>
+    #else
     func getURLCache() async -> Data?
+    #endif
     func saveURLCache(data: Data)
 }
 
@@ -18,7 +23,19 @@ actor DefaultURLCacheFileManager: URLCacheFileManager {
         self.fileManager = fileManager
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getURLCache() -> Promise<Data?> {
+        return firstly {
+            _getURLCache()
+        }
+    }
+    #else
     func getURLCache() async -> Data? {
+        return _getURLCache()
+    }
+    #endif
+        
+    @inline(__always) func _getURLCache() -> Data? {
         // Migrate file to new location
         // TODO: FXIOS-6086 Cleanup once v113 has been well adopted
         let directory = getCacheDirectory()

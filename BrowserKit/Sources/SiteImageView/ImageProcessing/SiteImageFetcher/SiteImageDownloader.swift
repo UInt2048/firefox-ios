@@ -5,6 +5,7 @@
 import Kingfisher
 import UIKit
 import Common
+import PromiseKit
 
 // MARK: - Kingfisher wrappers
 
@@ -19,13 +20,40 @@ protocol SiteImageDownloader: AnyObject {
     @discardableResult
     func downloadImage(
         with url: URL,
-        completionHandler: ((Result<SiteImageLoadingResult, Error>) -> Void)?
+        completionHandler: ((Swift.Result<SiteImageLoadingResult, Error>) -> Void)?
     ) -> DownloadTask?
 
+    #if !os(iOS) || WK_IOS_SINCE_13
+    func downloadImage(with url: URL) throws -> Promise<SiteImageLoadingResult>
+    #else
     func downloadImage(with url: URL) async throws -> SiteImageLoadingResult
+    #endif
 }
 
 extension SiteImageDownloader {
+    #if !os(iOS) || WK_IOS_SINCE_13
+    func downloadImage(with url: URL) throws -> Promise<SiteImageLoadingResult> {
+        let loadCase: Promise<SiteImageLoadingResult> = Promise(.pending) { seal in
+            _ = self.downloadImage(with: url) { result in
+                switch result {
+                case .success(let imageResult):
+                    seal.fulfill(imageResult.image)
+                case .failure(let error):
+                    seal.reject(error)
+                }
+            }
+        }
+        
+        let timeoutCase: Promise<SiteImageLoadingResult> = after(seconds: self.timeoutDelay).then {
+            self.logger.log("Timeout when downloading image reached",
+                            level: .warning,
+                            category: .images)
+            throw SiteImageError.unableToDownloadImage("Timeout reached")
+        }
+        
+        return race(loadCase, timeoutCase)
+    }
+    #else
     func downloadImage(with url: URL) async throws -> SiteImageLoadingResult {
         return try await withThrowingTaskGroup(of: SiteImageLoadingResult.self) { group in
             // Use task groups to have a timeout when downloading an image from Kingfisher
@@ -70,6 +98,7 @@ extension SiteImageDownloader {
             return result
         }
     }
+    #endif
 }
 
 /// Image loading result wrapper for Kingfisher type so we have control when testing

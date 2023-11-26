@@ -3,11 +3,18 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
+import PromiseKit
 
 protocol FaviconURLCache {
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getURLFromCache(cacheKey: String) throws -> Promise<URL>
+    func cacheURL(cacheKey: String, faviconURL: URL) -> Promise<Void>
+    func clearCache() -> Promise<Void>
+    #else
     func getURLFromCache(cacheKey: String) async throws -> URL
     func cacheURL(cacheKey: String, faviconURL: URL) async
     func clearCache() async
+    #endif
 }
 
 actor DefaultFaviconURLCache: FaviconURLCache {
@@ -30,7 +37,19 @@ actor DefaultFaviconURLCache: FaviconURLCache {
         }
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func getURLFromCache(cacheKey: String) throws -> Promise<URL> {
+        return firstly {
+            _getURLFromCache(cacheKey: cacheKey)
+        }
+    }
+    #else
     func getURLFromCache(cacheKey: String) async throws -> URL {
+        return try _getURLFromCache(cacheKey: cacheKey)
+    }
+    #endif
+        
+    @inline(__always) func _getURLFromCache(cacheKey: String) throws -> URL {
         guard let favicon = urlCache[cacheKey],
               let url = URL(string: favicon.faviconURL)
         else { throw SiteImageError.noURLInCache }
@@ -44,7 +63,19 @@ actor DefaultFaviconURLCache: FaviconURLCache {
         return url
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func cacheURL(cacheKey: String, faviconURL: URL) -> Promise<Void> {
+        return firstly {
+            _cacheURL(cacheKey: cacheKey, faviconURL: faviconURL)
+        }
+    }
+    #else
     func cacheURL(cacheKey: String, faviconURL: URL) async {
+        _cacheURL(cacheKey: cacheKey, faviconURL: faviconURL)
+    }
+    #endif
+    
+    @inline(__always) func _cacheURL(cacheKey: String, faviconURL: URL) {
         let favicon = FaviconURL(cacheKey: cacheKey,
                                  faviconURL: faviconURL.absoluteString,
                                  createdAt: Date())
@@ -52,7 +83,19 @@ actor DefaultFaviconURLCache: FaviconURLCache {
         preserveCache()
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    func clearCache() -> Promise<Void> {
+        return firstly {
+            _clearCache()
+        }
+    }
+    #else
     func clearCache() async {
+        _clearCache()
+    }
+    #endif
+    
+    func _clearCache() {
         urlCache = [String: FaviconURL]()
         preserveCache()
     }
@@ -80,6 +123,26 @@ actor DefaultFaviconURLCache: FaviconURLCache {
         return archiver.encodedData
     }
 
+    #if os(iOS) && WK_IOS_BEFORE_13
+    private func retrieveCache() -> Promise<Void> {
+        return firstly {
+            fileManager.getURLCache()
+        }.then { data in
+            try? NSKeyedUnarchiver(forReadingFrom: data)
+        }.then { unarchiver in
+            unarchiver?.decodeDecodable([FaviconURL].self, forKey: CacheConstants.cacheKey)
+        }.then { cacheList in
+            guard let cacheList = cacheList else { return }
+            let today = Date()
+            urlCache = cacheList.reduce(into: [String: FaviconURL]()) {
+                if numberOfDaysBetween(start: $1.createdAt, end: today) >= CacheConstants.daysToExpiration {
+                    return
+                }
+                $0[$1.cacheKey] = $1
+            }
+        }
+    }
+    #else
     private func retrieveCache() async {
         guard let data = await fileManager.getURLCache(),
               let unarchiver = try? NSKeyedUnarchiver(forReadingFrom: data),
@@ -99,6 +162,7 @@ actor DefaultFaviconURLCache: FaviconURLCache {
             $0[$1.cacheKey] = $1
         }
     }
+    #endif
 
     private func numberOfDaysBetween(start: Date, end: Date) -> Int {
         let calendar = NSCalendar.current

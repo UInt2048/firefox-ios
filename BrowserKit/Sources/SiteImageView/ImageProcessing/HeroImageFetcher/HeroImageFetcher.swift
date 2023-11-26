@@ -4,6 +4,7 @@
 
 import LinkPresentation
 import UIKit
+import PromiseKit
 
 protocol HeroImageFetcher {
     /// FetchHeroImage using metadataProvider needs the main thread, hence using @MainActor for it.
@@ -12,20 +13,46 @@ protocol HeroImageFetcher {
     ///   - siteURL: the url to fetch the hero image with
     ///   - metadataProvider: LPMetadataProvider
     /// - Returns: the hero image
+    #if os(iOS) && WK_IOS_BEFORE_13
+    @MainActor
+    func fetchHeroImage(from siteURL: URL, metadataProvider: LPMetadataProvider) throws -> Promise<UIImage>
+    #else
     @MainActor
     func fetchHeroImage(from siteURL: URL, metadataProvider: LPMetadataProvider) async throws -> UIImage
+    #endif
 }
 
 extension HeroImageFetcher {
+    #if os(iOS) && WK_IOS_BEFORE_13
+    @MainActor
+    func fetchHeroImage(from siteURL: URL, metadataProvider: LPMetadataProvider) throws -> Promise<UIImage> {
+        try fetchHeroImage(from: siteURL, metadataProvider: metadataProvider)
+    }
+    #else
     @MainActor
     func fetchHeroImage(from siteURL: URL,
                         metadataProvider: LPMetadataProvider = LPMetadataProvider()
     ) async throws -> UIImage {
         try await fetchHeroImage(from: siteURL, metadataProvider: metadataProvider)
     }
+    #endif
 }
 
 class DefaultHeroImageFetcher: HeroImageFetcher {
+    #if os(iOS) && WK_IOS_BEFORE_13
+    @MainActor
+    func fetchHeroImage(from siteURL: URL, metadataProvider: LPMetadataProvider) throws -> Promise<UIImage> {
+        firstly {
+            metadataProvider.startFetchingMetadata(for: siteURL)
+        }.then { metadata in
+            guard let imageProvider = metadata.imageProvider else {
+                throw SiteImageError.unableToDownloadImage("Metadata image provider could not be retrieved.")
+            }
+            
+            return try imageProvider.loadObject(ofClass: UIImage.self)
+        }
+    }
+    #else
     @MainActor
     func fetchHeroImage(from siteURL: URL,
                         metadataProvider: LPMetadataProvider = LPMetadataProvider()
@@ -41,4 +68,5 @@ class DefaultHeroImageFetcher: HeroImageFetcher {
             throw error
         }
     }
+    #endif
 }
