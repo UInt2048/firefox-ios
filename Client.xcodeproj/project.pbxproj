@@ -389,6 +389,8 @@
 		45D5EDCE292D83DB00311934 /* SQLitePinnedSites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5EDCD292D83DA00311934 /* SQLitePinnedSites.swift */; };
 		45D5EDD1292D857000311934 /* TestSQLitePinnedSites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5EDCF292D854000311934 /* TestSQLitePinnedSites.swift */; };
 		45D5EDD2292D89A200311934 /* PinnedSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BD95B2878AA74000FE773 /* PinnedSite.swift */; };
+		480E1C572B139DAF004AF016 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 480E1C562B139DAF004AF016 /* SwiftyJSON */; };
+		484C41BD2B124A0500F20312 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 484C41BC2B124A0500F20312 /* PromiseKit */; };
 		48504A7429FD33AF0022775C /* libANGLE-shared.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48504A7329FD33AF0022775C /* libANGLE-shared.dylib */; };
 		48504A7529FD33B00022775C /* libANGLE-shared.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 48504A7329FD33AF0022775C /* libANGLE-shared.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		48B421322B02EDF0009B329B /* _libJetsamConfigurator.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48B421312B02EDF0009B329B /* _libJetsamConfigurator.dylib */; };
@@ -6603,6 +6605,7 @@
 				43A878FD27AB4A110071C372 /* RustMozillaAppServices.framework in Frameworks */,
 				1B0DFD25274856D60008EB0A /* SwiftyJSON in Frameworks */,
 				5A9FF8492942454600DF9FBB /* Common in Frameworks */,
+				480E1C572B139DAF004AF016 /* SwiftyJSON in Frameworks */,
 				48E7C18229FCA5B000A86C49 /* CyberKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6628,6 +6631,7 @@
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
 				F8324A7C2649A5A5007E4BFA /* AuthenticationServices.framework in Frameworks */,
 				E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */,
+				484C41BD2B124A0500F20312 /* PromiseKit in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				48B9A32229E43625007E5B0E /* CyberKitLegacy.framework in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
@@ -10412,6 +10416,7 @@
 			packageProductDependencies = (
 				1B0DFD24274856D60008EB0A /* SwiftyJSON */,
 				5A9FF8482942454600DF9FBB /* Common */,
+				480E1C562B139DAF004AF016 /* SwiftyJSON */,
 			);
 			productName = Shared;
 			productReference = 288A2D861AB8B3260023ABC3 /* Shared.framework */;
@@ -10756,6 +10761,7 @@
 				5A70EF0D295DFCCF00790249 /* Common */,
 				5A37861829A2C337006B3A34 /* Sentry */,
 				5A06135929D6052E008F3D38 /* TabDataStore */,
+				484C41BC2B124A0500F20312 /* PromiseKit */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -11088,6 +11094,7 @@
 				43AFC0E027967BFA0039DDF4 /* XCRemoteSwiftPackageReference "Fuzi" */,
 				43C6A47D27A0679300C79856 /* XCRemoteSwiftPackageReference "MappaMundi" */,
 				5A37861729A2C337006B3A34 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				484C41BB2B124A0500F20312 /* XCRemoteSwiftPackageReference "PromiseKit" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -18733,6 +18740,14 @@
 				kind = branch;
 			};
 		};
+		484C41BB2B124A0500F20312 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		5A37861729A2C337006B3A34 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
@@ -18808,6 +18823,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 435C85EE2788F4D00072B526 /* XCRemoteSwiftPackageReference "glean-swift" */;
 			productName = Glean;
+		};
+		480E1C562B139DAF004AF016 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BDA1F8327113788006B2FAB /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		484C41BC2B124A0500F20312 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 484C41BB2B124A0500F20312 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
 		};
 		5A06135929D6052E008F3D38 /* TabDataStore */ = {
 			isa = XCSwiftPackageProductDependency;

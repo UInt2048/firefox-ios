@@ -3,7 +3,9 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import UIKit
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 
 /// The `Theme` protocol, which contains the implementation of themes,
 /// which comprise of a set of standardized colours (including light and

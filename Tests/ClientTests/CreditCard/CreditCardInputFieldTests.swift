@@ -6,7 +6,9 @@
 
 import Foundation
 import XCTest
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 @testable import Client
 
 class CreditCardInputFieldTests: XCTestCase {

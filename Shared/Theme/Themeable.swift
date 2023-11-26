@@ -5,7 +5,9 @@
 import Foundation
 import UIKit
 import Common
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 
 public protocol Themeable: AnyObject {
     var themeManager: ThemeManager { get }

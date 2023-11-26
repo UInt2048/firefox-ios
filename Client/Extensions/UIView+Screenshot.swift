@@ -10,16 +10,12 @@ extension UIView {
         guard 0...1 ~= quality else { return nil }
 
         let offset = offset ?? .zero
-#if false
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale * quality)
         drawHierarchy(in: CGRect(origin: offset, size: frame.size), afterScreenUpdates: false)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
         return image
-#else
-        return nil
-#endif
     }
 
     /// Takes a screenshot of the view with the given aspect ratio.

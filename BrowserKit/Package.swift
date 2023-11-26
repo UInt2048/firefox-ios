@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "BrowserKit",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v14)
     ],
     products: [
         .library(
@@ -51,6 +51,7 @@ let package = Package(
             dependencies: ["Dip",
                            "SwiftyBeaver",
                            .product(name: "Sentry", package: "sentry-cocoa")],
+            exclude: ["README.md", "Logger/README.md"],
             swiftSettings: [.unsafeFlags(["-enable-testing"])]),
         .testTarget(
             name: "CommonTests",
@@ -58,6 +59,7 @@ let package = Package(
         .target(
             name: "TabDataStore",
             dependencies: ["Common"],
+            exclude: ["README.md"],
             swiftSettings: [.unsafeFlags(["-enable-testing"])]),
         .testTarget(
             name: "TabDataStoreTests",

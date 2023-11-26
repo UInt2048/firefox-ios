@@ -28,9 +28,6 @@ class ScreenshotHelper {
      If taking a screenshot of a website, uses apple's `takeSnapshot` function
      */
     func takeScreenshot(_ tab: Tab) {
-#if true
-        return
-#endif
         guard let webView = tab.webView, let url = tab.url else {
             logger.log("Tab Snapshot Error",
                        level: .debug,

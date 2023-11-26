@@ -7,7 +7,9 @@ import Shared
 import Storage
 import SnapKit
 import Account
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 
 protocol DevicePickerViewControllerDelegate: AnyObject {
     func devicePickerViewControllerDidCancel(_ devicePickerViewController: DevicePickerViewController)

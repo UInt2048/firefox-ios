@@ -7,7 +7,9 @@ import Foundation
 import Shared
 import Storage
 import UIKit
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 import Common
 
 protocol ToolBarActionMenuDelegate: AnyObject {

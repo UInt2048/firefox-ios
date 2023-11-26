@@ -3,7 +3,9 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 import UIKit
 import XCTest
 @testable import Client

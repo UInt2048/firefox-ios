@@ -5,7 +5,9 @@
 import Common
 import Shared
 import Storage
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 import UIKit
 
 class CreditCardTableViewController: UIViewController, Themeable {

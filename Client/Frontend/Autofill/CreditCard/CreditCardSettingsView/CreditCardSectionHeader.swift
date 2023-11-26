@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+#if !os(iOS) || WK_IOS_SINCE_13
 import Combine
 import SwiftUI
 import Shared
@@ -43,3 +44,4 @@ struct CreditCardSectionHeader_Previews: PreviewProvider {
         CreditCardSectionHeader()
     }
 }
+#endif

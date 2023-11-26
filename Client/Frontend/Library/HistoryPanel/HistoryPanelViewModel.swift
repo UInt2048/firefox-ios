@@ -6,7 +6,9 @@ import Foundation
 import Common
 import Shared
 import Storage
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 
 private class FetchInProgressError: MaybeErrorType {
     internal var description: String {

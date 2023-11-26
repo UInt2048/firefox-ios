@@ -2,6 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+#if !os(iOS) || WK_IOS_SINCE_13
 import Combine
 import Foundation
 import SwiftUI
@@ -172,7 +173,7 @@ struct CreditCardInputField: View {
             Image(ImageIdentifiers.errorAutofill)
                 .renderingMode(.template)
                 .foregroundColor(errorColor)
-#if os(iOS) && WK_IOS_SINCE_14
+#if !os(iOS) || WK_IOS_SINCE_14
                 .accessibilityHidden(true)
 #endif
             Text(errorString)
@@ -271,3 +272,4 @@ struct CreditCardInputField: View {
         return inputFieldHelper.addCreditCardDelimiter(sanitizedCCNum: sanitizedCardNum)
     }
 }
+#endif

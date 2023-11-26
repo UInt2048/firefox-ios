@@ -5,7 +5,9 @@
 import Foundation
 import UIKit
 import Shared
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 
 enum InactiveTabSection: Int, CaseIterable {
     case inactive

@@ -4,7 +4,9 @@
 
 import Foundation
 import UIKit
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 import Storage
 import Shared
 

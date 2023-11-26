@@ -6,7 +6,9 @@ import Common
 import UIKit
 import Shared
 import Storage
+#if !os(iOS) || WK_IOS_SINCE_13
 import SwiftUI
+#endif
 
 class CreditCardSettingsViewController: SensitiveViewController, Themeable {
     var viewModel: CreditCardSettingsViewModel

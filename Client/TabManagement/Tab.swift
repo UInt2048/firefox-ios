@@ -160,7 +160,6 @@ class Tab: NSObject {
     }
 
     var historyList: [URL] {
-#if false
         func listToUrl(_ item: WKBackForwardListItem) -> URL { return item.url }
 
         var historyUrls = self.backList?.map(listToUrl) ?? [URL]()
@@ -168,9 +167,6 @@ class Tab: NSObject {
             historyUrls.append(url)
         }
         return historyUrls
-#else
-        return []
-#endif
     }
 
     var title: String? {
