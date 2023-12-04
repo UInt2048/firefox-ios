@@ -4,7 +4,7 @@
 
 import Common
 import XCTest
-import WebKit
+import CyberKit
 @testable import Client
 
 final class FakespotCoordinatorTests: XCTestCase {

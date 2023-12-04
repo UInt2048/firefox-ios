@@ -4,7 +4,7 @@
 
 import Foundation
 import MozillaAppServices
-import WebKit
+import CyberKit
 import Shared
 
 enum HistoryDeletionUtilityDateOptions {

@@ -5,7 +5,7 @@
 import Foundation
 import Photos
 import UIKit
-import WebKit
+import CyberKit
 import Shared
 import Storage
 import SnapKit

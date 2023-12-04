@@ -5,7 +5,7 @@
 import Common
 import Foundation
 import Shared
-import WebKit
+import CyberKit
 
 let ReaderModeProfileKeyStyle = "readermode.style"
 

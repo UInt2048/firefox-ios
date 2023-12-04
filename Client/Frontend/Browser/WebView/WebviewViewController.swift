@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import WebKit
+import CyberKit
 
 class WebviewViewController: UIViewController, ContentContainable, ScreenshotableView {
     private var webView: WKWebView

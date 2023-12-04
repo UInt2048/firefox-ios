@@ -4,7 +4,7 @@
 
 import Common
 import XCTest
-import WebKit
+import CyberKit
 import ComponentLibrary
 @testable import Client
 

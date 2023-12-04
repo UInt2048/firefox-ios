@@ -4,7 +4,7 @@
 
 import UIKit
 import Shared
-import WebKit
+import CyberKit
 import Storage
 import Common
 

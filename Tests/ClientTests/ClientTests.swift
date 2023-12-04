@@ -7,7 +7,7 @@ import UIKit
 import XCTest
 import Shared
 import Storage
-import WebKit
+import CyberKit
 @testable import Client
 
 class ClientTests: XCTestCase {

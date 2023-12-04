@@ -4,7 +4,7 @@
 
 import Foundation
 import Storage
-import WebKit
+import CyberKit
 
 protocol BrowserNavigationHandler: AnyObject {
     /// Asks to show a settings page, can be a general settings page or a child page
