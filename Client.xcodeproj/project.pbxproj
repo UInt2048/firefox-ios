@@ -17842,10 +17842,14 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = Sync/Info.plist;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Sync/Sync-Bridging-Header.h";
 			};
 			name = Fennec;
@@ -17866,11 +17870,10 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "Shared/Supporting Files/Info.plist";
 				LOCALIZED_STRING_MACRO_NAMES = (
@@ -17879,7 +17882,6 @@
 					CFCopyLocalizedString,
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Shared/Shared-Bridging-Header.h";
 			};
 			name = Fennec;
@@ -17968,10 +17970,11 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				INFOPLIST_FILE = Extensions/NotificationService/Info.plist;
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_NOTIFICATIONSERVICE";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).$(PRODUCT_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec.NotificationService;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 			};
@@ -18085,11 +18088,12 @@
 				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/Fennec.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				INFOPLIST_FILE = WidgetKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec.WidgetKit;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 			};
@@ -18157,11 +18161,10 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "RustMozillaAppServices-Info.plist";
 				LOCALIZED_STRING_MACRO_NAMES = (
@@ -18171,7 +18174,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Shared/Shared-Bridging-Header.h";
 			};
 			name = Fennec;
@@ -18183,9 +18185,9 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "RustMozillaAppServices-Info.plist";
 				LOCALIZED_STRING_MACRO_NAMES = (
@@ -18195,7 +18197,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Shared/Shared-Bridging-Header.h";
 			};
 			name = Fennec_Enterprise;
@@ -18589,10 +18590,9 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "Shared/Supporting Files/Info.plist";
 				LOCALIZED_STRING_MACRO_NAMES = (
@@ -18601,7 +18601,6 @@
 					CFCopyLocalizedString,
 				);
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Shared/Shared-Bridging-Header.h";
 			};
 			name = Fennec_Enterprise;
@@ -18643,9 +18642,13 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = Sync/Info.plist;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Sync/Sync-Bridging-Header.h";
 			};
 			name = Fennec_Enterprise;
@@ -19000,7 +19003,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -19028,7 +19031,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(OTHER_SWIFT_FLAGS_common) -DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CREDENTIAL_PROVIDER";
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.Fennec.CredentialProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewbenedict.ios.Fennec.CredentialProvider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -19280,7 +19283,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -19291,6 +19294,7 @@
 					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -19317,10 +19321,11 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_SHARETO";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).$(PRODUCT_NAME)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec.ShareTo;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 			};
