@@ -2,6 +2,8 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+#include "../../../CyberKit/Configurations/DeploymentTarget.xcconfig"
+
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
 ALWAYS_SEARCH_USER_PATHS = NO
 ALWAYS_USE_SEPARATE_HEADERMAPS = NO
@@ -20,7 +22,7 @@ FRAMEWORK_SEARCH_PATHS = $(inherited) $(SRCROOT)/../CyberKit/CyberKitBuild/Produ
 GCC_DYNAMIC_NO_PIC = NO;
 HEADER_SEARCH_PATHS = $(inherited) /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include $(SRCROOT) $(SDKROOT)/usr/include/libxml2
 INCLUDE_SETTINGS_BUNDLE = NO
-IPHONEOS_DEPLOYMENT_TARGET = 15.0
+IPHONEOS_DEPLOYMENT_TARGET = $CYBERKIT_DEPLOYMENT_TARGET
 LIBRARY_SEARCH_PATHS = $(inherited) $(SRCROOT)/../CyberKit/CyberKitBuild/Production-iphoneos
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../../Frameworks @executable_path/Frameworks @loader_path/Frameworks
 MOZ_PUBLIC_URL_SCHEME = firefox

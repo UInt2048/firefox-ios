@@ -11315,6 +11315,7 @@
 				48A9E3E02B1FF69900F3585D /* Symlink CyberKit Frameworks */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				4368F81027955AE80013419B /* ShellScript */,
+				48A9E3E12B1FFBA400F3585D /* Fakesigner */,
 			);
 			buildRules = (
 			);
@@ -12039,6 +12040,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd $SRCROOT/../CyberKit/CyberKitBuild/Fennec-iphoneos\nFPATH=../Production-iphoneos\nln -sf $FPATH/libANGLE-shared.dylib .\nln -sf $FPATH/libwebrtc.dylib .\nln -sf $FPATH/CyberScriptCore.framework .\nln -sf $FPATH/CyberCore.framework .\nln -sf $FPATH/CyberKitLegacy.framework .\nln -sf $FPATH/CyberKit.framework .\nln -sf $FPATH/WebGPU.framework .\n";
+		};
+		48A9E3E12B1FFBA400F3585D /* Fakesigner */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Fakesigner;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/script_fakesigner.sh fennec-$CYBERKIT_DEPLOYMENT_TARGET\n";
 		};
 		5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -18144,7 +18163,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SJ87WGCZM7;
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec.WidgetKit;
@@ -18186,7 +18204,6 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				INFOPLIST_FILE = WidgetKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
 				PROVISIONING_PROFILE_SPECIFIER = "bitrise org.mozilla.ios.Firefox.WidgetKit";
