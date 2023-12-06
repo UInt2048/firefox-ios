@@ -140,7 +140,7 @@ class RemoteTabsPanel: UIViewController,
             guard let self else { return }
 
             self.state = state
-            tableViewController.newState(state: state)
+            self.tableViewController.newState(state: state)
         }
     }
 

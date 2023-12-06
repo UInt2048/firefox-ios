@@ -6,6 +6,10 @@ import Foundation
 import CyberKit
 
 extension WKWebView {
+    public func evaluateJavaScript(_ javascript: String, in frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: @escaping (Any?, Error?) -> Void) {
+        self.__evaluateJavaScript(javascript, inFrame: frame, in: contentWorld, completionHandler: completionHandler)
+    }
+    
     /// This calls different WebKit evaluateJavaScript functions depending on iOS version
     ///  - If iOS14 or higher, evaluates Javascript in a .defaultClient sandboxed content world
     ///  - If below iOS14, evaluates Javascript without sandboxed environment
@@ -14,7 +18,7 @@ extension WKWebView {
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String) {
         // iOS 14.3 is required here because of a webkit bug in lower iOS versions with this API
         if #available(iOS 14.3, *) {
-            self.evaluateJavaScript(javascript, in: nil, in: .defaultClient, completionHandler: { _ in })
+            self.evaluateJavaScript(javascript, in: nil, in: .defaultClient, completionHandler: { _,_  in })
         } else {
             self.evaluateJavaScript(javascript)
         }
@@ -29,14 +33,7 @@ extension WKWebView {
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String, _ frame: WKFrameInfo? = nil, _ completion: @escaping (Any?, Error?) -> Void) {
         // iOS 14.3 is required here because of a webkit bug in lower iOS versions with this API
         if #available(iOS 14.3, *) {
-            self.evaluateJavaScript(javascript, in: frame, in: .defaultClient) { result in
-                switch result {
-                case .success(let value):
-                    completion(value, nil)
-                case .failure(let error):
-                    completion(nil, error)
-                }
-            }
+            self.evaluateJavaScript(javascript, in: frame, in: .defaultClient, completionHandler: completion)
         } else {
             self.evaluateJavaScript(javascript) { data, error  in
                 completion(data, error)

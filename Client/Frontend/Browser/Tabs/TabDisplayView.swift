@@ -80,7 +80,7 @@ class TabDisplayView: UIView,
             case .inactiveTabs:
                 return self.inactiveTabsSectionManager.layoutSection(
                     layoutEnvironment,
-                    isExpanded: state.isInactiveTabsExpanded)
+                    isExpanded: self.state.isInactiveTabsExpanded)
             }
         }
         return layout

@@ -38,7 +38,7 @@ final class EventQueue<QueueEventType: Hashable> {
         mainQueue.ensureMainThread { [weak self] in
             guard let self else { return }
             guard !self.signalledEvents.contains(event) else {
-                logger.log("Signalling duplicate event: \(event)", level: .warning, category: .library)
+                self.logger.log("Signalling duplicate event: \(event)", level: .warning, category: .library)
                 return
             }
             self.signalledEvents.insert(event)

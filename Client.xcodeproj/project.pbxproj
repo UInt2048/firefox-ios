@@ -1823,16 +1823,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4368F838279665E00013419B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8AFD6277282C51D300451BC8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4447,6 +4437,7 @@
 		483744B5A1EBF3F05FC1AC1F /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Menu.strings; sourceTree = "<group>"; };
 		484E44CEA10A06DC7753D146 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		487E492390D3A7B6ADB7DD84 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Intro.strings; sourceTree = "<group>"; };
+		488527E02B1E778B00A6E83A /* CyberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		488A26D52B1E3E8600ADA7B9 /* libANGLE-shared.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = "libANGLE-shared.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488A26D62B1E3E8600ADA7B9 /* CyberCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		488A26D72B1E3E8600ADA7B9 /* CyberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4457,6 +4448,7 @@
 		4893406289230F01A41C8303 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		48964CFE9D4E388AA44F6ACE /* sat-Olck */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sat-Olck"; path = "sat-Olck.lproj/Search.strings"; sourceTree = "<group>"; };
 		489942028830F356C15BB263 /* ses */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ses; path = ses.lproj/Storage.strings; sourceTree = "<group>"; };
+		48A9E3DC2B1FC40D00F3585D /* libCyberKitSwift.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libCyberKitSwift.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CE453DB03E03EB3597E22F /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
 		490042C78D64E36D6C7973A1 /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/AuthenticationManager.strings; sourceTree = "<group>"; };
 		491242468B874EDF3C93D6F2 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Search.strings; sourceTree = "<group>"; };
@@ -8277,6 +8269,8 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48A9E3DC2B1FC40D00F3585D /* libCyberKitSwift.dylib */,
+				488527E02B1E778B00A6E83A /* CyberKit.framework */,
 				488A26D52B1E3E8600ADA7B9 /* libANGLE-shared.dylib */,
 				488A26D62B1E3E8600ADA7B9 /* CyberCore.framework */,
 				488A26D72B1E3E8600ADA7B9 /* CyberKit.framework */,
@@ -11021,7 +11015,6 @@
 				288A2D811AB8B3260023ABC3 /* Sources */,
 				288A2D821AB8B3260023ABC3 /* Frameworks */,
 				288A2D841AB8B3260023ABC3 /* Resources */,
-				4368F838279665E00013419B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -11319,6 +11312,7 @@
 				28CE83DE1A1D1E7C00576538 /* Frameworks */,
 				F84B22531A0920C600AAB793 /* Embed App Extensions */,
 				E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */,
+				48A9E3E02B1FF69900F3585D /* Symlink CyberKit Frameworks */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				4368F81027955AE80013419B /* ShellScript */,
 			);
@@ -12027,6 +12021,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "rm -rf .venv; bash $PWD/bin/sdk_generator.sh -g Glean -o $SRCROOT/Storage/Generated\n";
+		};
+		48A9E3E02B1FF69900F3585D /* Symlink CyberKit Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Symlink CyberKit Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd $SRCROOT/../CyberKit/CyberKitBuild/Fennec-iphoneos\nFPATH=../Production-iphoneos\nln -sf $FPATH/libANGLE-shared.dylib .\nln -sf $FPATH/libwebrtc.dylib .\nln -sf $FPATH/CyberScriptCore.framework .\nln -sf $FPATH/CyberCore.framework .\nln -sf $FPATH/CyberKitLegacy.framework .\nln -sf $FPATH/CyberKit.framework .\nln -sf $FPATH/WebGPU.framework .\n";
 		};
 		5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -18340,10 +18352,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-ld_classic",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
@@ -18592,10 +18600,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-ld_classic",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.FennecEnterprise;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
@@ -18843,10 +18847,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-ld_classic",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
@@ -19331,10 +19331,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-ld_classic",
-				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.matthewbenedict.ios.Fennec;
 				PRODUCT_MODULE_NAME = Client;

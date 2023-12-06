@@ -286,7 +286,7 @@ class FakespotViewController:
                 guard let self = self else { return }
                 self.delegate?.fakespotControllerDidDismiss()
                 guard let action else { return }
-                viewModel.recordDismissTelemetry(by: action)
+                self.viewModel.recordDismissTelemetry(by: action)
             }
             viewModel.optInCardViewModel.onOptIn = { [weak self] in
                 guard let self = self else { return }
@@ -329,7 +329,7 @@ class FakespotViewController:
                 guard let self = self else { return }
                 self.delegate?.fakespotControllerDidDismiss()
                 guard let action else { return }
-                viewModel.recordDismissTelemetry(by: action)
+                self.viewModel.recordDismissTelemetry(by: action)
             }
             return view
 

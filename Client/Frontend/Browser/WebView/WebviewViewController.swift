@@ -6,6 +6,12 @@ import Foundation
 import Shared
 import CyberKit
 
+extension WKWebView {
+    func createPDF(completionHandler: @escaping (Data?, Error?) -> Void) {
+        __createPDF(with: nil, completionHandler: completionHandler)
+    }
+}
+
 class WebviewViewController: UIViewController, ContentContainable, ScreenshotableView {
     private var webView: WKWebView
     var contentType: ContentType = .webview
@@ -53,11 +59,10 @@ class WebviewViewController: UIViewController, ContentContainable, Screenshotabl
         rect.origin.x = webView.scrollView.contentOffset.x
         rect.origin.y = webView.scrollView.contentSize.height - rect.height - webView.scrollView.contentOffset.y
 
-        webView.createPDF { result in
-            switch result {
-            case .success(let data):
+        webView.createPDF { data, error in
+            if let data = data {
                 completionHandler(ScreenshotData(pdfData: data, rect: rect))
-            case .failure:
+            } else {
                 completionHandler(nil)
             }
         }

@@ -12,4 +12,13 @@
 #import "Shared-Bridging-Header.h"
 #import "Storage-Bridging-Header.h"
 
+// Inform older SDK versions that viewIsAppearing is defined.
+#import "Availability.h"
+#if !defined(__IPHONE_17_0)
+@import UIKit;
+@interface UIViewController (UpcomingLifecycleMethods)
+- (void)viewIsAppearing:(BOOL)animated API_AVAILABLE(ios(13.0), tvos(13.0)) API_UNAVAILABLE(watchos);
+@end
+#endif
+
 #endif
