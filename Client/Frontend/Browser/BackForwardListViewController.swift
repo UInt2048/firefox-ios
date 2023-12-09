@@ -45,8 +45,8 @@ class BackForwardListViewController: UIViewController,
 
     var tabManager: TabManager!
     weak var bvc: BrowserViewController?
-    var currentItem: WKBackForwardListItem?
-    var listData = [WKBackForwardListItem]()
+    var currentItem: CyberBackForwardListItem?
+    var listData = [CyberBackForwardListItem]()
 
     var tableHeight: CGFloat {
         return min(BackForwardViewUX.RowHeight * CGFloat(listData.count), self.view.frame.height/2)
@@ -61,7 +61,7 @@ class BackForwardListViewController: UIViewController,
     var snappedToBottom = true
 
     init(profile: Profile,
-         backForwardList: WKBackForwardList,
+         backForwardList: CyberBackForwardList,
          themeManager: ThemeManager = AppContainer.shared.resolve(),
          notificationCenter: NotificationProtocol = NotificationCenter.default) {
         self.profile = profile
@@ -128,7 +128,7 @@ class BackForwardListViewController: UIViewController,
         shadow.backgroundColor = theme.colors.shadowDefault
     }
 
-    func homeAndNormalPagesOnly(_ bfList: WKBackForwardList) {
+    func homeAndNormalPagesOnly(_ bfList: CyberBackForwardList) {
         let items = bfList.forwardList.reversed() + [bfList.currentItem].compactMap({$0}) + bfList.backList.reversed()
 
         // error url's are OK as they are used to populate history on session restore.
@@ -144,7 +144,7 @@ class BackForwardListViewController: UIViewController,
         }
     }
 
-    func loadSites(_ bfList: WKBackForwardList) {
+    func loadSites(_ bfList: CyberBackForwardList) {
         currentItem = bfList.currentItem
 
         homeAndNormalPagesOnly(bfList)

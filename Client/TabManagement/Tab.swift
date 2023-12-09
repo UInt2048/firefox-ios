@@ -62,6 +62,75 @@ enum TabUrlType: String {
     case googleTopSiteFollowOn
 }
 
+// Create a wrapper in case we have the one from system WebKit
+class CyberBackForwardListItem : NSObject {
+    var url: URL
+    var title: String?
+    var initialURL: URL
+    var unsafeRef: NSObject
+    
+    // Initialize this with a WKBackForwardListItem
+    init(_ item: NSObject) {
+        url = item.value(forKey: "URL") as! URL
+        title = item.value(forKey: "title") as? String
+        initialURL = item.value(forKey: "initialURL") as! URL
+        unsafeRef = item
+    }
+    
+    convenience init?(_ item: NSObject?) {
+        if let item = item {
+            self.init(item)
+        } else {
+            return nil
+        }
+    }
+}
+
+// Create a wrapper in case we have the one from system WebKit
+class CyberBackForwardList : NSObject {
+    var currentItem: CyberBackForwardListItem?
+    var backItem: CyberBackForwardListItem?
+    var forwardItem: CyberBackForwardListItem?
+    var backList: [CyberBackForwardListItem]
+    var forwardList: [CyberBackForwardListItem]
+    var unsafeRef: NSObject
+    
+    func item(at index: Int) -> CyberBackForwardListItem? {
+        if (index == 0) {
+            return currentItem
+        }
+        if (index < 0 && -index < backList.count) {
+            return backList[-index]
+        }
+        if (index > 0 && index < forwardList.count) {
+            return forwardList[index]
+        }
+        return nil
+    }
+    
+    // Initialize this with a WKBackForwardList
+    init(_ list: NSObject) {
+        currentItem = CyberBackForwardListItem(list.value(forKey: "currentItem") as? NSObject)
+        backItem = CyberBackForwardListItem(list.value(forKey: "backItem") as? NSObject)
+        forwardItem = CyberBackForwardListItem(list.value(forKey: "forwardItem") as? NSObject)
+        backList = (list.value(forKey: "backList") as! [NSObject]).map {
+            CyberBackForwardListItem($0)
+        }
+        forwardList = (list.value(forKey: "forwardList") as! [NSObject]).map {
+            CyberBackForwardListItem($0)
+        }
+        unsafeRef = list
+    }
+    
+    convenience init?(_ item: NSObject?) {
+        if let item = item {
+            self.init(item)
+        } else {
+            return nil
+        }
+    }
+}
+
 class Tab: NSObject {
     static let privateModeKey = "PrivateModeKey"
     private var _isPrivate = false
@@ -156,17 +225,21 @@ class Tab: NSObject {
     var estimatedProgress: Double {
         return webView?.estimatedProgress ?? 0
     }
-
-    var backList: [WKBackForwardListItem]? {
-        return webView?.backForwardList.backList
+    
+    var backForwardList: CyberBackForwardList? {
+        return CyberBackForwardList(webView?.backForwardList)
     }
 
-    var forwardList: [WKBackForwardListItem]? {
-        return webView?.backForwardList.forwardList
+    var backList: [CyberBackForwardListItem]? {
+        return backForwardList?.backList
+    }
+
+    var forwardList: [CyberBackForwardListItem]? {
+        return backForwardList?.forwardList
     }
 
     var historyList: [URL] {
-        func listToUrl(_ item: WKBackForwardListItem) -> URL { return item.url }
+        func listToUrl(_ item: CyberBackForwardListItem) -> URL { return item.url }
 
         var historyUrls = self.backList?.map(listToUrl) ?? [URL]()
         if let url = url {
@@ -594,8 +667,8 @@ class Tab: NSObject {
         _ = webView?.goForward()
     }
 
-    func goToBackForwardListItem(_ item: WKBackForwardListItem) {
-        _ = webView?.go(to: item)
+    func goToBackForwardListItem(_ item: CyberBackForwardListItem) {
+        _ = webView?.go(to: item.unsafeRef as! WKBackForwardListItem)
     }
 
     @discardableResult

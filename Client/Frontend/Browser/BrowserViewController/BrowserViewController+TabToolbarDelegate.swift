@@ -187,7 +187,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func showBackForwardList() {
-        if let backForwardList = tabManager.selectedTab?.webView?.backForwardList {
+        if let backForwardList = tabManager.selectedTab?.backForwardList {
             let backForwardViewController = BackForwardListViewController(profile: profile, backForwardList: backForwardList)
             backForwardViewController.tabManager = tabManager
             backForwardViewController.bvc = self

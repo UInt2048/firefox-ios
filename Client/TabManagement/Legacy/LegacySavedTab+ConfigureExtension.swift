@@ -14,14 +14,14 @@ extension LegacySavedTab {
 
         ensureMainThread {
             if sessionData == nil {
-                let currentItem: WKBackForwardListItem! = tab.webView?.backForwardList.currentItem
+                let currentItem: CyberBackForwardListItem! = tab.backForwardList?.currentItem
 
                 // Freshly created web views won't have any history entries at all.
                 // If we have no history, abort.
                 if currentItem != nil {
                     // The back & forward list keep track of the users history within the session
-                    let backList = tab.webView?.backForwardList.backList ?? []
-                    let forwardList = tab.webView?.backForwardList.forwardList ?? []
+                    let backList = tab.backList ?? []
+                    let forwardList = tab.forwardList ?? []
                     let urls = (backList + [currentItem] + forwardList).map { $0.url }
                     let currentPage = -forwardList.count
                     sessionData = LegacySessionData(currentPage: currentPage, urls: urls, lastUsedTime: tab.lastExecutedTime ?? Date.now())
