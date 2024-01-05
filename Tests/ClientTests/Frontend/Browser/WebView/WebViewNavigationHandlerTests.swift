@@ -4,7 +4,7 @@
 
 @testable import Client
 
-import CyberKit
+import WebKit
 import XCTest
 
 class WebViewNavigationHandlerTests: XCTestCase {

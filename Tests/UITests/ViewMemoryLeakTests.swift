@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
-import CyberKit
+import WebKit
 
 /// This test should be disabled since getTopViewController() crashes with iOS 10
 /// ------------------------------------------------------------------------------

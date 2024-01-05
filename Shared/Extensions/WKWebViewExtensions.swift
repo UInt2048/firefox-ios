@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
-import CyberKit
+import WebKit
 
 extension WKWebView {
     public func evaluateJavaScript(_ javascript: String, in frame: WKFrameInfo?, in contentWorld: WKContentWorld, completionHandler: @escaping (Any?, Error?) -> Void) {

@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import CyberKit
+import WebKit
 import Glean
 
 public enum BasicSearchProvider: String {

@@ -4,7 +4,7 @@
 
 import Common
 import Shared
-import CyberKit
+import WebKit
 import UIKit
 import GCDWebServers
 @testable import Client

@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import UIKit
-import CyberKit
+import WebKit
 import Common
 import Shared
 

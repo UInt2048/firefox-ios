@@ -4,7 +4,7 @@
 
 import Foundation
 import Common
-import CyberKit
+import WebKit
 import Shared
 import UIKit
 

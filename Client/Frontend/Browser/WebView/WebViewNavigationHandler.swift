@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
-import CyberKit
+import WebKit
 
 protocol WebViewNavigationHandler {
     // A completion handler block to call with the results about whether to allow or cancel the WebView navigation.

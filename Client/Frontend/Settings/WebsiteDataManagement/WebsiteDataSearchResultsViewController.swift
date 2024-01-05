@@ -5,7 +5,7 @@
 import UIKit
 import SnapKit
 import Shared
-import CyberKit
+import WebKit
 import Common
 
 class WebsiteDataSearchResultsViewController: ThemedTableViewController {

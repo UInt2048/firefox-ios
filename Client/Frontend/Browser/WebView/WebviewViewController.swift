@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import CyberKit
+import WebKit
 
 extension WKWebView {
     func createPDF(completionHandler: @escaping (Data?, Error?) -> Void) {

@@ -5,7 +5,7 @@
 @testable import Client
 import Foundation
 import XCTest
-import CyberKit
+import WebKit
 import Shared
 import Common
 import Storage

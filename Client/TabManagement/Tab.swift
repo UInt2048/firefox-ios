@@ -7,7 +7,7 @@ import Foundation
 import Storage
 import Shared
 import SiteImageView
-import CyberKit
+import WebKit
 
 private var debugTabCount = 0
 

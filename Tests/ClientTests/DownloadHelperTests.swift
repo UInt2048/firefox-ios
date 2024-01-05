@@ -4,7 +4,7 @@
 
 import XCTest
 import Foundation
-import CyberKit
+import WebKit
 @testable import Client
 
 class DownloadHelperTests: XCTestCase {

@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import XCTest
-import CyberKit
+import WebKit
 @testable import Client
 
 class TabTests: XCTestCase {

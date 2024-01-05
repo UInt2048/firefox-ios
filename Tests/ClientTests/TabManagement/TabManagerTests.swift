@@ -5,7 +5,7 @@
 import Foundation
 import XCTest
 import TabDataStore
-import CyberKit
+import WebKit
 import Shared
 @testable import Client
 

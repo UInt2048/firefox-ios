@@ -6,7 +6,7 @@ import Common
 import Foundation
 import GCDWebServers
 import Storage
-import CyberKit
+import WebKit
 import Shared
 @testable import Client
 

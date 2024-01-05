@@ -5,7 +5,7 @@
 import Foundation
 import Shared
 import Storage
-import CyberKit
+import WebKit
 import Common
 
 struct TopTabsUX {

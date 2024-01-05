@@ -6,7 +6,7 @@ import Common
 import Foundation
 import Shared
 import Storage
-import CyberKit
+import WebKit
 
 class LoginsHelper: TabContentScript {
     fileprivate weak var tab: Tab?

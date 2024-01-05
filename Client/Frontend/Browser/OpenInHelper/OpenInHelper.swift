@@ -5,7 +5,7 @@
 import Common
 import Foundation
 import MobileCoreServices
-import CyberKit
+import WebKit
 import Shared
 
 struct MIMEType {

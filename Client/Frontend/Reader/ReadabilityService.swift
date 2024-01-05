@@ -5,7 +5,7 @@
 import Foundation
 import Shared
 import Common
-import CyberKit
+import WebKit
 
 enum ReadabilityOperationResult {
     case success(ReadabilityResult)

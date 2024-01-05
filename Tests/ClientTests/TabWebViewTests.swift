@@ -7,7 +7,7 @@
 import Common
 import Shared
 import XCTest
-import CyberKit
+import WebKit
 
 class TabWebViewTests: XCTestCaseRootViewController, UIGestureRecognizerDelegate {
     private var configuration: WKWebViewConfiguration!

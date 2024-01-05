@@ -7,7 +7,7 @@ import Shared
 import Storage
 import CoreSpotlight
 import MobileCoreServices
-import CyberKit
+import WebKit
 import SiteImageView
 import Common
 

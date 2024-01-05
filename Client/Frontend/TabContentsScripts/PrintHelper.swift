@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import CyberKit
+import WebKit
 
 class PrintHelper: TabContentScript {
     fileprivate weak var tab: Tab?

@@ -6,7 +6,7 @@ import Foundation
 import Common
 import Storage
 import Shared
-import CyberKit
+import WebKit
 import ComponentLibrary
 
 class CredentialAutofillCoordinator: BaseCoordinator {

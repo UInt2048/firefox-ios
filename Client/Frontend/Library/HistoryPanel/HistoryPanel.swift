@@ -5,7 +5,7 @@
 import UIKit
 import Shared
 import Storage
-import CyberKit
+import WebKit
 import Common
 import SiteImageView
 

@@ -5,7 +5,7 @@
 import Foundation
 import Shared
 import MobileCoreServices
-import CyberKit
+import WebKit
 
 class ShareExtensionHelper: NSObject, FeatureFlaggable {
     private weak var selectedTab: Tab?

@@ -401,20 +401,6 @@
 		45D5EDCE292D83DB00311934 /* SQLitePinnedSites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5EDCD292D83DA00311934 /* SQLitePinnedSites.swift */; };
 		45D5EDD1292D857000311934 /* TestSQLitePinnedSites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D5EDCF292D854000311934 /* TestSQLitePinnedSites.swift */; };
 		45D5EDD2292D89A200311934 /* PinnedSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BD95B2878AA74000FE773 /* PinnedSite.swift */; };
-		488A26DC2B1E3E8600ADA7B9 /* libANGLE-shared.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D52B1E3E8600ADA7B9 /* libANGLE-shared.dylib */; };
-		488A26DD2B1E3E8600ADA7B9 /* libANGLE-shared.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D52B1E3E8600ADA7B9 /* libANGLE-shared.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		488A26DE2B1E3E8600ADA7B9 /* CyberCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D62B1E3E8600ADA7B9 /* CyberCore.framework */; };
-		488A26DF2B1E3E8600ADA7B9 /* CyberCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D62B1E3E8600ADA7B9 /* CyberCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		488A26E02B1E3E8700ADA7B9 /* CyberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D72B1E3E8600ADA7B9 /* CyberKit.framework */; };
-		488A26E12B1E3E8700ADA7B9 /* CyberKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D72B1E3E8600ADA7B9 /* CyberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		488A26E22B1E3E8700ADA7B9 /* CyberKitLegacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D82B1E3E8600ADA7B9 /* CyberKitLegacy.framework */; };
-		488A26E32B1E3E8700ADA7B9 /* CyberKitLegacy.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D82B1E3E8600ADA7B9 /* CyberKitLegacy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		488A26E42B1E3E8700ADA7B9 /* CyberScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D92B1E3E8600ADA7B9 /* CyberScriptCore.framework */; };
-		488A26E52B1E3E8700ADA7B9 /* CyberScriptCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26D92B1E3E8600ADA7B9 /* CyberScriptCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		488A26E62B1E3E8700ADA7B9 /* libwebrtc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26DA2B1E3E8600ADA7B9 /* libwebrtc.dylib */; };
-		488A26E72B1E3E8700ADA7B9 /* libwebrtc.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26DA2B1E3E8600ADA7B9 /* libwebrtc.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		488A26E82B1E3E8800ADA7B9 /* WebGPU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26DB2B1E3E8600ADA7B9 /* WebGPU.framework */; };
-		488A26E92B1E3E8800ADA7B9 /* WebGPU.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 488A26DB2B1E3E8600ADA7B9 /* WebGPU.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		4F2A06BE26F8E46E0017DA05 /* TabCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2A06BD26F8E46E0017DA05 /* TabCounterTests.swift */; };
 		4F514FD41ACD8F2C0022D7EA /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F514FD31ACD8F2C0022D7EA /* HistoryTests.swift */; };
@@ -1839,14 +1825,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				488A26E52B1E3E8700ADA7B9 /* CyberScriptCore.framework in Copy Frameworks */,
 				43017ECB278E0C6700CED011 /* RustMozillaAppServices.framework in Copy Frameworks */,
-				488A26DF2B1E3E8600ADA7B9 /* CyberCore.framework in Copy Frameworks */,
-				488A26DD2B1E3E8600ADA7B9 /* libANGLE-shared.dylib in Copy Frameworks */,
-				488A26E92B1E3E8800ADA7B9 /* WebGPU.framework in Copy Frameworks */,
-				488A26E72B1E3E8700ADA7B9 /* libwebrtc.dylib in Copy Frameworks */,
-				488A26E32B1E3E8700ADA7B9 /* CyberKitLegacy.framework in Copy Frameworks */,
-				488A26E12B1E3E8700ADA7B9 /* CyberKit.framework in Copy Frameworks */,
 				C82043C32523DD6A00740B71 /* Sync.framework in Copy Frameworks */,
 				C87703D225223EA5006E38EB /* Shared.framework in Copy Frameworks */,
 			);
@@ -4437,14 +4416,6 @@
 		483744B5A1EBF3F05FC1AC1F /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Menu.strings; sourceTree = "<group>"; };
 		484E44CEA10A06DC7753D146 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		487E492390D3A7B6ADB7DD84 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Intro.strings; sourceTree = "<group>"; };
-		488527E02B1E778B00A6E83A /* CyberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26D52B1E3E8600ADA7B9 /* libANGLE-shared.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = "libANGLE-shared.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26D62B1E3E8600ADA7B9 /* CyberCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26D72B1E3E8600ADA7B9 /* CyberKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26D82B1E3E8600ADA7B9 /* CyberKitLegacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberKitLegacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26D92B1E3E8600ADA7B9 /* CyberScriptCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CyberScriptCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26DA2B1E3E8600ADA7B9 /* libwebrtc.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libwebrtc.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		488A26DB2B1E3E8600ADA7B9 /* WebGPU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WebGPU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4893406289230F01A41C8303 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		48964CFE9D4E388AA44F6ACE /* sat-Olck */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sat-Olck"; path = "sat-Olck.lproj/Search.strings"; sourceTree = "<group>"; };
 		489942028830F356C15BB263 /* ses */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ses; path = ses.lproj/Storage.strings; sourceTree = "<group>"; };
@@ -7143,7 +7114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				488A26E42B1E3E8700ADA7B9 /* CyberScriptCore.framework in Frameworks */,
 				5A70EF0E295DFCCF00790249 /* Common in Frameworks */,
 				8A08EC6427EBDCAD00E119C7 /* AdServices.framework in Frameworks */,
 				8A08EC6227EBDCA400E119C7 /* iAd.framework in Frameworks */,
@@ -7156,21 +7126,15 @@
 				C8E18F20222EDED000E30E52 /* SafariServices.framework in Frameworks */,
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
 				F8324A7C2649A5A5007E4BFA /* AuthenticationServices.framework in Frameworks */,
-				488A26E22B1E3E8700ADA7B9 /* CyberKitLegacy.framework in Frameworks */,
 				E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */,
-				488A26E62B1E3E8700ADA7B9 /* libwebrtc.dylib in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
-				488A26DE2B1E3E8600ADA7B9 /* CyberCore.framework in Frameworks */,
-				488A26E02B1E3E8700ADA7B9 /* CyberKit.framework in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
 				5A871488292EA1440039A5BD /* Fuzi in Frameworks */,
 				1B3D99F1270E89D0006E1264 /* Telemetry in Frameworks */,
-				488A26E82B1E3E8800ADA7B9 /* WebGPU.framework in Frameworks */,
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
 				433F87CE2788EAB600693368 /* GCDWebServers in Frameworks */,
-				488A26DC2B1E3E8600ADA7B9 /* libANGLE-shared.dylib in Frameworks */,
 				5A06135A29D6052E008F3D38 /* TabDataStore in Frameworks */,
 				216A0D762A40E7AB008077BA /* Redux in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
@@ -8269,15 +8233,6 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				48A9E3DC2B1FC40D00F3585D /* libCyberKitSwift.dylib */,
-				488527E02B1E778B00A6E83A /* CyberKit.framework */,
-				488A26D52B1E3E8600ADA7B9 /* libANGLE-shared.dylib */,
-				488A26D62B1E3E8600ADA7B9 /* CyberCore.framework */,
-				488A26D72B1E3E8600ADA7B9 /* CyberKit.framework */,
-				488A26D82B1E3E8600ADA7B9 /* CyberKitLegacy.framework */,
-				488A26D92B1E3E8600ADA7B9 /* CyberScriptCore.framework */,
-				488A26DA2B1E3E8600ADA7B9 /* libwebrtc.dylib */,
-				488A26DB2B1E3E8600ADA7B9 /* WebGPU.framework */,
 				8A08EC6327EBDCAC00E119C7 /* AdServices.framework */,
 				C8E18F1F222EDED000E30E52 /* SafariServices.framework */,
 				C8E18F1D222EDE4400E30E52 /* Accelerate.framework */,

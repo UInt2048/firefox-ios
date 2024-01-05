@@ -5,7 +5,7 @@
 import Foundation
 import Common
 import Shared
-import CyberKit
+import WebKit
 
 class FocusHelper: TabContentScript {
     private var logger: Logger

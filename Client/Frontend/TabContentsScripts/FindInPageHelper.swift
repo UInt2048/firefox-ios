@@ -4,7 +4,7 @@
 
 import Foundation
 import Shared
-import CyberKit
+import WebKit
 
 protocol FindInPageHelperDelegate: AnyObject {
     func findInPageHelper(_ findInPageHelper: FindInPageHelper, didUpdateCurrentResult currentResult: Int)
