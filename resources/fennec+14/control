@@ -1,9 +1,9 @@
 Package: com.matthewbenedict.ios.fennec+14
 Name: CyberKit Fennec (iOS 14)
 Maintainer: UInt2048
-Version: 0.0.9-alpha
+Version: 0.0.9-nightly.01
 Section: Tweaks
-Provides: com.matthewbenedict.ios.fennec (= 0.0.9-alpha)
+Provides: com.matthewbenedict.ios.fennec (= 0.0.9-nightly.01)
 Conflicts: com.matthewbenedict.ios.fennec
 Replaces: com.matthewbenedict.ios.fennec
 Depends: firmware (>=14.0), firmware (<<15.0)

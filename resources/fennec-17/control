@@ -1,14 +1,14 @@
-Package: com.matthewbenedict.ios.fennec+16
-Name: CyberKit Fennec (iOS 16 Rootful)
+Package: com.matthewbenedict.ios.fennec-17
+Name: CyberKit Fennec (iOS 17 Rootless)
 Maintainer: UInt2048
 Version: 0.0.9-nightly.01
 Section: Tweaks
 Provides: com.matthewbenedict.ios.fennec (= 0.0.9-nightly.01)
 Conflicts: com.matthewbenedict.ios.fennec
 Replaces: com.matthewbenedict.ios.fennec
-Depends: firmware (>=16.0), firmware (<<17.0)
-Architecture: iphoneos-arm
+Depends: firmware (>=17.0), firmware (<<18.0)
+Architecture: iphoneos-arm64
 Description: CyberKit Fennec allows you to test CyberKit using Firefox for iOS.
-Depiction: https://uint2048.github.io/depictions/fennec-rootful/?p=16
-Sileodepiction: https://uint2048.github.io/depictions/fennec-rootful/16/sileo.json
+Depiction: https://uint2048.github.io/depictions/fennec-rootless/?p=17
+Sileodepiction: https://uint2048.github.io/depictions/fennec-rootless/17/sileo.json
 Icon: https://uint2048.github.io/CydiaIcon.png
